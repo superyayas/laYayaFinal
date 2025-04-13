@@ -1,0 +1,170 @@
+
+:root {
+    --color-principal: black;
+    --color-secundario: #828282;
+    --color-fondo: #e7e5e5;
+    --color-galeria: #e4b1b1;
+    --color-destacados: #b18f8f;
+    --color-contactos: #dddddd;
+    --color-hover: #a8d4e7;
+    --color-contacto: #eeeae9;
+    --fuente-principal: 'Inter', sans-serif;
+    --fuente-detalle: 'Inter', monospace;
+}
+
+body {
+    padding-top: 80px; 
+    font-family: var(--fuente-principal);
+    background: var(--color-fondo);
+}
+/* Header */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Logo */
+.logo img {
+    flex: 1;
+    width: 90px;
+    border-radius: 15px;
+}
+
+/* Menú de navegación */
+nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--color-principa);
+}
+nav a:hover {
+    color: var(--color-hover); /* Cambia el color al pasar el cursor */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+    
+}
+
+    
+h1 {
+    text-align: center; /* Centramos el título */
+    margin-bottom: 20px; /* Añadimos espacio debajo del título */
+}
+    
+a {
+    margin: 10px; /* Añadimos espacio alrededor de los enlaces */
+    padding: 10px 20px; /* Añadimos relleno a los enlaces para que sean más grandes */
+    border: 1px solid #ccc; /* Añadimos un borde sutil */
+    text-decoration: none; /* Quitamos el subrayado de los enlaces */
+    color: #333; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+}
+    
+a:hover {
+    background-color: #f0f0f0; /* Cambiamos el fondo al pasar el ratón */
+}
+.search-container {
+    position: relative;
+    width: 300px;
+}
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+.search-results {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+}
+.search-results div {
+    padding: 10px;
+    cursor: pointer;
+}
+.search-results div:hover {
+    background: #f0f0f0;
+}
+
+#formulario{
+    width: 100%;
+    height: 300px;
+    background-color: beige;
+    font-family: "Francois One", sans-serif;
+    color: olive;
+    float: left;
+    margin-left: 600px;
+    padding-top: 25px;
+    padding-left: 60px;
+
+}
+
+input{
+    display: block;
+    height: 30px;
+    margin-top: 20px;
+    width: 450px;
+
+}
+
+#botonEnviar{
+    width: 150px;
+    border-style: inset;
+    background-color: #F3D3B8;
+}
+
+/*Footer*/
+.pie {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+.pie h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.pie p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.pie a {
+    color: #ff6347;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.pie a:hover {
+    color: #ffffff; /* Cambia a blanco al pasar el ratón */
+}
+
+
