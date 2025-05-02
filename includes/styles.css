@@ -83,33 +83,61 @@ a {
 a:hover {
     background-color: #f0f0f0; /* Cambiamos el fondo al pasar el ratón */
 }
+
+/*Barra de buscador*/
 .search-container {
     position: relative;
     width: 300px;
 }
 .search-bar {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;            /* o un ancho fijo, p.ej. 300px */
+    max-width: 400px;
+    background-color: #222; /* fondo oscuro */
+    border-radius: 999px;   /* píldora */
+    padding: 4px;           /* espacio interior */
+    box-sizing: border-box;
+}
+.search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: #eee;            /* texto claro */
+    font-size: 14px;
+    padding: 8px 12px;
     outline: none;
-}
-.search-results {
-    position: absolute;
-    top: 40px;
-    width: 100%;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    display: none;
-}
-.search-results div {
-    padding: 10px;
+  }
+  
+  .search-input::placeholder {
+    color: #aaa;            /* placeholder más tenue */
+  }
+  
+  .search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333; /* círculo ligeramente distinto */
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 4px;      /* si quieres separarlo un poco del borde */
     cursor: pointer;
-}
-.search-results div:hover {
-    background: #f0f0f0;
-}
+    transition: background 0.2s;
+  }
+  
+  .search-btn:hover {
+    background-color: #444;
+  }
+  
+  .search-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: #ccc;             /* color del icono */
+  }
+
+/*Fin de barra de buscador*/
 
 #formulario{
     width: 100%;

@@ -2,27 +2,20 @@ const items = ["Manzana", "Banana", "Naranja", "Uva", "Pera", "Sandía"];
       
 //Barra de buscador
 
-function searchFunction() {
-    let input = document.getElementById("search").value.toLowerCase();
-    let resultsDiv = document.getElementById("results");
-    resultsDiv.innerHTML = "";
-    if (input === "") {
-        resultsDiv.style.display = "none";
-        return;
+function buscador() {
+    // Cambia '#buscador' por el selector real de tu input
+    const buscadorInput = document.querySelector('#buscador');
+    if (!buscadorInput) {
+      console.error('No se encontró el <input> con selector "#buscador"');
+      return;
     }
-    let filtered = items.filter(item => item.toLowerCase().includes(input));
-    if (filtered.length > 0) {
-        resultsDiv.style.display = "block";
-        filtered.forEach(item => {
-            let div = document.createElement("div");
-            div.textContent = item;
-            div.onclick = () => {
-                document.getElementById("search").value = item;
-                resultsDiv.style.display = "none";
-            };
-            resultsDiv.appendChild(div);
-        });
+  
+    // Aquí ya es seguro leer .value
+    const texto = buscadorInput.value.trim();
+    if (texto === '') {
+      console.log('El buscador está vacío.');
     } else {
-        resultsDiv.style.display = "none";
+      // Lógica de búsqueda…
+      console.log('Buscando:', texto);
     }
-}
+  }

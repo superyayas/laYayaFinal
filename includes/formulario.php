@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrate</title>
     <link rel="stylesheet" href="styles.css">
+    <?php
+    include "cabecera.php";
+    ?>
 </head>
 <body>
     
         <h2>Formulario de Registro</h2>
-        <form action="confirmRegistro.php" method="post">
+        <form action="../sesiones/confirmRegistro.php" method="post">
             <div>
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
