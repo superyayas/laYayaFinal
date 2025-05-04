@@ -194,5 +194,101 @@ input{
 .pie a:hover {
     color: #ffffff; /* Cambia a blanco al pasar el ratón */
 }
-
-
+/*Contacto*/
+.seccion-contacto {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 2rem;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+  .seccion-contacto h2 {
+    text-align: center;
+    color: #6c3483; /* color violeta suave */
+  }
+  .form-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .form-contacto input[type="text"],
+  .form-contacto input[type="email"],
+  .form-contacto textarea {
+    width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  }
+  .form-contacto textarea {
+    resize: vertical;
+    min-height: 100px;
+   
+  }
+  .form-contacto input[type="submit"] {
+    width: 150px;
+  align-self: center;
+  background-color: #6c3483;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  }
+  
+  .form-contacto input[type="submit"]:hover {
+    background-color: #512e5f;
+    transform: scale(1.05);
+  }
+  
+  /*procesarContacto*/
+  .seccion-contacto {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 2rem;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .seccion-contacto h2 {
+    text-align: center;
+    color: #6c3483; /* violeta suave */
+    margin-bottom: 20px;
+  }
+  
+  .seccion-contacto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333333;
+    text-align: center;
+    background-color: #f4ecf7;
+    padding: 1rem;
+    border-left: 6px solid #6c3483;
+    border-radius: 8px;
+    margin-top: 0 auto;
+  }
+  
+  .seccion-contacto a {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 18px;
+    background-color: #6c3483;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .seccion-contacto a:hover {
+    background-color: #512e5f;
+  }
+  

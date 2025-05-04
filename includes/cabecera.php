@@ -35,7 +35,8 @@ session_start();
         <a href="<?= BASE_URL ?>index.php">Inicio</a>
         <a href="<?= BASE_URL ?>includes/login.php">Iniciar sesión</a>
         <a href="<?= BASE_URL ?>includes/formulario.php">Registro</a>
-        <a href="<?= BASE_URL ?>">Contacto</a>
+        <a href="<?= BASE_URL ?>includes/contacto.php">Contacto</a>
+
         
       </nav>
     <?php else: ?>
