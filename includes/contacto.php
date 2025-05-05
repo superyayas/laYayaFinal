@@ -20,6 +20,9 @@
     <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
     <input type="submit" value="Enviar">
   </form>
+  <div class="boton-salir-container">
+  <button type="button" onclick="window.location.href='../index.php'" class="boton-salir">Salir</button>
+</div>
 </section>
 
 <?php include 'pie.html'; ?>

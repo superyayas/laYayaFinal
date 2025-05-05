@@ -244,6 +244,38 @@ input{
     background-color: #512e5f;
     transform: scale(1.05);
   }
+  .boton-enviar {
+    background-color: #6b2676;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .boton-enviar:hover {
+    background-color: #581c61;
+  }
+  
+  .boton-salir-container {
+    margin-top: 20px;
+    text-align: left; /* Cambia a right si lo quieres a la derecha */
+  }
+  
+  .boton-salir {
+    background-color: #ccc;
+    color: #333;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .boton-salir:hover {
+    background-color: #999;
+  }
+  
   
   /*procesarContacto*/
   .seccion-contacto {

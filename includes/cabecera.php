@@ -44,7 +44,7 @@ session_start();
       <nav>
         <a href="<?= BASE_URL ?>index.php">Inicio</a>
         <a href="<?= BASE_URL ?>sesiones/accesoUser.php"> Sesión de: <?= htmlspecialchars($_SESSION['usuario'])?></a>
-        <a href="<?= BASE_URL ?>">Contacto</a>
+        <a href="<?= BASE_URL ?>includes/contacto.php">Contacto</a>
         <a href="<?= BASE_URL ?>sesiones/controlSesiones/cerrarSesion.php">Cerrar sesión</a>
         
       </nav>
