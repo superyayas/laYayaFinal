@@ -32,25 +32,10 @@ include_once __DIR__ . '/../config.php';
 
         <input type="submit" value="Añadir Producto">
     </form>
-
-    <h1>Añadir un nuevo supermercado</h1>
-
-    <form action="<?= BASE_URL ?>gestores/gestor_supermercado.php" method="post">
-    <label for="nombre">Nombre:</label><br>
-    <input type="text" id="nombre" name="nombre" required><br><br>
-
-    <label for="direccion_super">Dirección:</label><br>
-    <input type="text" id="direccion_super" name="direccion" required><br><br>
-
-    <label for="cuidad_super">Ciudad:</label><br>
-    <input type="text" id="cuidad_super" name="cuidad" required><br><br>
-
-    <label for="pais_producto">País:</label><br>
-    <input type="text" id="pais_producto" name="pais" required><br><br>
-
-    <input type="submit" value="Añadir super">
-</form>
   </nav>
+  <h1>Añadir un nuevo supermercado</h1>
+    <a href="<?= BASE_URL ?>gestores/add_supermercado.php" class="btn">Añadir un nuevo supermercado</a>
+    <a href="<?= BASE_URL ?>gestores/listar_supermercado.php" class="btn">Comprobar los supermercados</a>
   <?php
   include "../includes/pie.html";
   ?>

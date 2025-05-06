@@ -11,7 +11,7 @@ CREATE TABLE Usuario (
 CREATE TABLE Supermercado (
     ID_Supermercado INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(100) NOT NULL,
-    Direccion TEXT NULL,
+    Direccion VARCHAR(255) NULL UNIQUE,
     Ciudad VARCHAR(50) NOT NULL,
     Pais VARCHAR(50) NOT NULL
 );
