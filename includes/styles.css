@@ -275,8 +275,6 @@ input{
   .boton-salir:hover {
     background-color: #999;
   }
-  
-  
   /*procesarContacto*/
   .seccion-contacto {
     max-width: 600px;
@@ -289,13 +287,11 @@ input{
     text-align: center;
     align-items: center;
   }
-  
   .seccion-contacto h2 {
     text-align: center;
     color: #6c3483; /* violeta suave */
     margin-bottom: 20px;
   }
-  
   .seccion-contacto p {
     font-size: 1.1rem;
     line-height: 1.6;
@@ -307,7 +303,6 @@ input{
     border-radius: 8px;
     margin-top: 0 auto;
   }
-  
   .seccion-contacto a {
     display: inline-block;
     margin-top: 25px;
@@ -319,8 +314,25 @@ input{
     font-weight: bold;
     transition: background-color 0.3s ease;
   }
-  
   .seccion-contacto a:hover {
     background-color: #512e5f;
+  }
+   /*Gestion Mis productos*/
+   .botones-crud {
+    display: flex;
+    gap: 20px;
+    justify-content: left;
+    margin-bottom: 30px;
+  }
+  .boton {
+    padding: 10px 20px;
+    background-color: #6a1b9a;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  .boton:hover {
+    background-color: #4a148c;
   }
   

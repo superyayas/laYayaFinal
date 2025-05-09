@@ -15,15 +15,24 @@ return [$nombre,$apellidos,$usuario,$email,$contrasena,$contenido];
     }
 }
 function productos(){
-    if (isset($_POST['nombreProducto']) && isset($_POST['descripcion']) && isset($_POST['precio']) && isset($_POST['cantidad']) ){
-        $nombreProducto = $_POST['nombreProducto'];
+    if (isset($_POST['nombre_producto']) && isset($_POST['descripcion']) && isset($_POST['precio']) && isset($_POST['id_categoria']) &&
+    isset($_POST['marca']) ){
+        $nombre_producto = $_POST['nombre_producto'];
         $descripcion = $_POST['descripcion'];
+        $precio = $_POST['precio'];
         $id_categoria = $_POST['id_categoria'];
         $marca = $_POST['marca'];
     $contenido = true;
-return [$nombre_producto,$descripcion,$id_categoria,$marca,$contenido];
+return [$nombre_producto,$descripcion,$id_categoria,$marca,$precio,$contenido];
     }else{
         $contenido = false;
         return $contenido;
     }
+}
+function conectarBD() {
+    $conexion = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    if ($conexion->connect_error) {
+        die("Error de conexión: " . $conexion->connect_error);
+    }
+    return $conexion;
 }
