@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once __DIR__ . '/../includes/funciones.php';
 include_once __DIR__ . '/../modelo/bdd/mysql.php';
 

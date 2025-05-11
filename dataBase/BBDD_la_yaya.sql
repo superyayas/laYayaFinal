@@ -23,10 +23,10 @@ CREATE TABLE Categoria (
 
 CREATE TABLE Producto (
     ID_Producto INT AUTO_INCREMENT PRIMARY KEY,
-    NombreProducto VARCHAR(100) NOT NULL,
+    NombreProducto VARCHAR(100) NOT NULL UNIQUE,
     Descripcion TEXT NULL,
     ID_Categoria INT NOT NULL,
-    Marca VARCHAR(50) NULL,
+    Marca VARCHAR(50) NULL UNIQUE,
     FOREIGN KEY (ID_Categoria) REFERENCES Categoria(ID_Categoria)
 );
 

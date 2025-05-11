@@ -1,7 +1,7 @@
 <?php
 include_once __DIR__ . '/../config.php';
 
-//SIEMPRE QUE TENGAMOS QUE PONER LA CABECERA DEBEMOS DE INCLUIR EL COMANDO SESSION_STAR()
+
 session_start();
     $tiempo_maximo = 30 * 60;
 
@@ -27,8 +27,16 @@ session_start();
 
          <div class="logo">
             <img src="<?= BASE_URL ?>includes/img/logo.png" alt="Logo">
-            <script src="<?= BASE_URL ?>/scripts.js"></script>
-        </div>
+           </div>    
+          <input type="text" id="buscador" placeholder="Buscar producto...">
+        <button class="search-btn" onclick="buscador()" aria-label="Buscar">
+          <svg viewBox="0 0 24 24">
+            <path d="..." />
+          </svg>
+        </button>
+        <div id="resultados"></div>
+
+  
     <?php if (!isset($_SESSION['usuario'])): ?>
       <!-- Cabecera para invitado -->
       <nav>
@@ -49,5 +57,6 @@ session_start();
         
       </nav>
     <?php endif; ?>
+  <script src="<?= BASE_URL ?>scripts.js"></script>
   </header>
 
