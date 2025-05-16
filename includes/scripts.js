@@ -4,16 +4,24 @@
 
 function buscador() {
   const inputBuscar = document.getElementById('buscador');
-  const resultados = document.getElementById('resultados');
-  const texto = inputBuscar.value.trim();
+  const resultados  = document.getElementById('resultados');
+  const texto       = inputBuscar.value.trim();
 
   if (!texto) {
     resultados.innerHTML = '<p>Escribe algo para buscar.</p>';
     return;
   }
 
-  fetch('buscar_producto.php?nombre=' + encodeURIComponent(texto))
-    .then(res => res.text())
+  // Montamos la URL relativa a index.php,
+  // apuntando a la carpeta `includes/`.
+  const urlRelativa = 'includes/buscar_producto.php?nombre=' + encodeURIComponent(texto);
+  console.log('BUSCANDO URL RELATIVA:', urlRelativa);
+
+  fetch(urlRelativa)
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.text();
+    })
     .then(html => {
       resultados.innerHTML = html;
     })
@@ -22,3 +30,5 @@ function buscador() {
       resultados.innerHTML = '<p>Error al buscar. Inténtalo de nuevo.</p>';
     });
 }
+
+
