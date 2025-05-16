@@ -10,7 +10,7 @@ if ($nombre === '') {
     exit;
 }
 
-$sql = "SELECT ID_Producto, NombreProducto, Descripcion, Marca FROM producto WHERE NombreProducto LIKE ?";
+$sql = "SELECT ID_Producto, Nombre, Precio FROM producto WHERE Nombre LIKE ?";
 $param = '%' . $nombre . '%';
 $resultados = yayaBD::consultaLectura($sql, $param);
 yayaBD::cerrarConexion();
@@ -18,15 +18,7 @@ yayaBD::cerrarConexion();
 if ($resultados) {
     echo "<ul>";
     foreach ($resultados as $producto) {
-        // uso NombreProducto, Descripcion y Marca
-        $nombre     = htmlspecialchars($producto['NombreProducto']);
-        $descripcion= htmlspecialchars($producto['Descripcion']);
-        $marca      = htmlspecialchars($producto['Marca']);
-        echo "<li>
-                <strong>{$nombre}</strong><br>
-                {$descripcion}<br>
-                <em>Marca: {$marca}</em>
-              </li>";
+        echo "<li><strong>" . htmlspecialchars($producto['Nombre']) . "</strong> - " . htmlspecialchars($producto['Precio']) . " €</li>";
     }
     echo "</ul>";
 } else {
