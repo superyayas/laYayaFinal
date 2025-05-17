@@ -27,3 +27,29 @@ function buscador() {
       resultados.innerHTML = '<p>Error al buscar. Inténtalo de nuevo.</p>';
     });
 }
+// Modal de confirmación para eliminar producto
+let formularioActual = null;
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Asigna evento a cada formulario de eliminar
+  document.querySelectorAll('.form-eliminar').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Evita el envío automático
+      formularioActual = form;
+      document.getElementById('modalConfirmacion').style.display = 'flex'; // Mostrar modal
+    });
+  });
+
+  // Botón confirmar del modal
+  const btnConfirmar = document.getElementById('confirmarEliminar');
+  if (btnConfirmar) {
+    btnConfirmar.addEventListener('click', () => {
+      if (formularioActual) formularioActual.submit(); // Envía el formulario
+    });
+  }
+});
+
+// Función para cerrar el modal
+function cerrarModal() {
+  document.getElementById('modalConfirmacion').style.display = 'none';
+}

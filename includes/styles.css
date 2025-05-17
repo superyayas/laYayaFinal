@@ -288,4 +288,74 @@ input{
   .boton:hover {
     background-color: #4a148c;
   }
-  
+ /* Botones CRUD en la tabla */
+td.acciones {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.boton {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;           /*  Importante: sin ancho fijo */
+    min-width: 110px;      /*  Ancho mínimo más compacto */
+    text-align: center;
+}
+/* Añadir - Azul */
+.boton-añadir {
+    background-color: #2196f3;
+    color: white;
+    border: 2px solid #2196f3;
+}
+.boton-añadir:hover {
+    background-color: white;
+    color: #2196f3;
+}
+
+/* Modificar - Amarillo */
+.boton-modificar {
+    background-color: #ffc107;
+    color: black;
+    border: 2px solid #ffc107;
+}
+.boton-modificar:hover {
+    background-color: black;
+    color: #ffc107;
+}
+
+/* Eliminar - Rojo */
+.boton-eliminar {
+    background-color: #f44336;
+    color: white;
+    border: 2px solid #f44336;
+}
+.boton-eliminar:hover {
+    background-color: white;
+    color: #f44336;
+}
+/* Modal Eliminar Producto */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-contenido {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  text-align: center;
+}

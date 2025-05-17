@@ -1,9 +1,13 @@
 <?php
 include_once '../config.php';
 include_once '../includes/funciones.php';
-$conexion = conectarBD();
-$resultado = $conexion->query("SELECT ID_Categoria, Nombre FROM categoria");          
 
+
+
+$conexion = conectarBD();
+
+$categorias = $conexion->query("SELECT ID_Categoria, Nombre FROM categoria");
+$supermercados = $conexion->query("SELECT ID_Supermercado, Nombre FROM supermercado");
 ?>
 
 <!DOCTYPE html>
@@ -29,16 +33,21 @@ $resultado = $conexion->query("SELECT ID_Categoria, Nombre FROM categoria");
   <label>Marca:</label><br>
   <input type="text" name="marca"><br><br>
 
+  <label>Supermercado:</label><br>
+  <select name="id_supermercado" required>
+    <?php while ($fila = $supermercados->fetch_assoc()): ?>
+      <option value="<?= $fila['ID_Supermercado'] ?>"><?= htmlspecialchars($fila['Nombre']) ?></option>
+    <?php endwhile; ?>
+  </select><br><br>
+
   <label>Precio:</label><br>
   <input type="number" step="0.01" name="precio" required><br><br>
 
   <label>Categoría:</label><br>
   <select name="id_categoria" required>
-  <?php
-  while ($fila = $resultado->fetch_assoc()):
-  ?>
-    <option value="<?= $fila['ID_Categoria'] ?>"><?= htmlspecialchars($fila['Nombre']) ?></option>
-  <?php endwhile; ?>
+    <?php while ($fila = $categorias->fetch_assoc()): ?>
+      <option value="<?= $fila['ID_Categoria'] ?>"><?= htmlspecialchars($fila['Nombre']) ?></option>
+    <?php endwhile; ?>
   </select><br><br>
 
   <div class="botones-crud">
