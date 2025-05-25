@@ -49,6 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+//Modal para error de añadir usuario repetido
+
+
 // Función para cerrar el modal
 function cerrarModal() {
   document.getElementById('modalConfirmacion').style.display = 'none';

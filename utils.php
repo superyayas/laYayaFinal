@@ -1,11 +1,13 @@
 <?php
-function imagenPorNombre(string $nombre): string {
-    $nombre = strtolower($nombre);
-    return match (true) {
-        str_contains($nombre, 'aceite') => 'aceite.png',
-        str_contains($nombre, 'leche')  => 'leche.png',
-        str_contains($nombre, 'pan')    => 'pan.png',
-        str_contains($nombre, 'arroz')  => 'arroz.png',
-        default                         => 'default.png'
+function imagenPorNombreCategoria(string $nombreCategoria): string {
+    $nombre = strtolower(trim($nombreCategoria));
+
+    return match ($nombre) {
+        'Lácteos'   => 'leche.png',
+        'Carnes'  => 'pechugaPollo.png',
+        'Bebidad'   => 'cocaCOla.png',
+        'Harinas'     => 'pan.png',
+        'Pescados'     => 'pescado.png',
+        default   => 'default.png',
     };
 }

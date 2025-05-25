@@ -76,11 +76,13 @@ INSERT INTO Categoria (Nombre) VALUES
 ('Lácteos'),
 ('Carnes'),
 ('Bebidas');
+('Harinas');
+('Pescados');
 
-INSERT INTO Producto (NombreProducto, Descripcion, ID_Categoria, Marca) VALUES
-('Leche Entera', 'Leche entera 1L', 1, 'Marca A'),
-('Pechuga de Pollo', 'Pechuga de pollo fresca', 2, 'Marca B'),
-('Coca-Cola 2L', 'Refresco de cola 2 litros', 3, 'Coca-Cola');
+INSERT INTO Producto (NombreProducto, Descripcion, ID_Categoria, Marca, Imagen) VALUES
+('Leche Entera', 'Leche entera 1L', 1, 'Marca A',''),
+('Pechuga de Pollo', 'Pechuga de pollo fresca', 2, 'Marca B',''),
+('Coca-Cola 2L', 'Refresco de cola 2 litros', 3, 'Coca-Cola','');
 
 
 INSERT INTO PrecioProducto (ID_Producto, ID_Supermercado, Precio, ID_Usuario) VALUES
