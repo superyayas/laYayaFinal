@@ -27,6 +27,7 @@ CREATE TABLE Producto (
     Descripcion TEXT NULL,
     ID_Categoria INT NOT NULL,
     Marca VARCHAR(50) NULL UNIQUE,
+    Imagen VARCHAR(255) NULL,
     FOREIGN KEY (ID_Categoria) REFERENCES Categoria(ID_Categoria)
 );
 

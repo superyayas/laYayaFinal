@@ -1,6 +1,7 @@
 <?php
 include_once '../config.php';
 include_once '../includes/funciones.php';
+include_once '../utils.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -19,10 +20,14 @@ if ($datos && count($datos) === 5) {
     $id_usuario = $_SESSION['id_usuario'] ?? 1; // ← O usa null si no necesitas ID
 
     // Insertar producto
-    $sql = "INSERT INTO producto (NombreProducto, Descripcion, ID_Categoria, Marca)
-            VALUES (?, ?, ?, ?)";
+
+    //Añadir una imagen al producto
+    $imagen = imagenPorNombre($nombre);
+
+    $sql = "INSERT INTO producto (NombreProducto, Descripcion, ID_Categoria, Marca, Imagen)
+            VALUES (?, ?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql);
-    $stmt->bind_param("ssis", $nombre, $descripcion, $id_categoria, $marca);
+    $stmt->bind_param("ssiss", $nombre, $descripcion, $id_categoria, $marca, $imagen);
     $stmt->execute();
 
     if ($stmt->affected_rows > 0) {

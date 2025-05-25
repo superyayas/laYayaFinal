@@ -1,3 +1,10 @@
+/* RESET BÁSICO*/
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
     --color-principal: black;
@@ -65,6 +72,7 @@ nav a:hover {
     
 }
 
+/*TÍTULOS*/
     
 h1 {
     text-align: center; /* Centramos el título */
@@ -228,6 +236,7 @@ input{
   .boton-salir:hover {
     background-color: #999;
   }
+
   /*procesarContacto*/
   .seccion-contacto {
     max-width: 600px;
@@ -270,6 +279,7 @@ input{
   .seccion-contacto a:hover {
     background-color: #512e5f;
   }
+
    /*Gestion Mis productos*/
    .botones-crud {
     display: flex;
@@ -288,6 +298,7 @@ input{
   .boton:hover {
     background-color: #4a148c;
   }
+
  /* Botones CRUD en la tabla */
 td.acciones {
     display: flex;
@@ -359,3 +370,49 @@ td.acciones {
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   text-align: center;
 }
+
+/*PERTENECE A LA PARTE DE INDEX DE PRODUCTOS*/
+
+/*CONTENEDOR DE PRODUCTOS*/
+.productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === Tarjeta individual del producto === */
+.producto {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.producto:hover {
+    transform: scale(1.03);
+}
+
+/* === Imagen del producto === */
+.producto img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* === Título del producto === */
+.producto h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* === Texto descriptivo === */
+.producto p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/*fIN DE LA PARTE DE INDEX DE PRODUCTOS*/
