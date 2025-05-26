@@ -376,25 +376,39 @@ td.acciones {
 /*CONTENEDOR DE PRODUCTOS*/
 .productos-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 20px;
 }
 
 /* === Tarjeta individual del producto === */
 .producto {
-    background-color: #fff;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+    background-color: #fff;
+    padding: 16px;
+    transition: box-shadow 0.2s ease;
 }
 
 .producto:hover {
-    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
 }
+.producto-link {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+.producto-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+
 
 /* === Imagen del producto === */
 .producto img {
@@ -416,3 +430,44 @@ td.acciones {
 }
 
 /*fIN DE LA PARTE DE INDEX DE PRODUCTOS*/
+
+/*Comparador*/
+.comparador-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+.producto-info {
+    text-align: center;
+}
+
+.producto-info img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.precio-lista {
+    margin-top: 30px;
+}
+
+.precio-lista table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.precio-lista th, .precio-lista td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+}
+
+.precio-lista th {
+    background-color: #f2f2f2;
+}

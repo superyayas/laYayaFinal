@@ -38,21 +38,23 @@ include 'includes/cabecera.php';
  <div class="productos-container">
         <?php if ($productos): ?>
             <?php foreach ($productos as $producto): ?>
-                <div class="producto">
-                 <img src="includes/img/<?php echo htmlspecialchars($producto['Imagen']); ?>"
-                    onerror="this.onerror=null; this.src='includes/img/default.png';"
-                    alt="<?php echo htmlspecialchars($producto['NombreProducto']); ?>">
-                    <h3><?php echo htmlspecialchars($producto['NombreProducto']); ?></h3>
-                    <p><?php echo htmlspecialchars($producto['Descripcion']); ?></p>
-                    <p><strong>Marca:</strong> <?php echo htmlspecialchars($producto['Marca']); ?></p>
-                        <p><strong>Precio desde:</strong>
-                    <?php echo $producto['PrecioMinimo'] !== null
-                        ? number_format($producto['PrecioMinimo'], 2) . ' €'
-                        : 'No disponible'; ?> </p>
-                        <?php if ($producto['NombreSupermercado']): ?>
-                         <p><strong>Supermercado:</strong> <?php echo htmlspecialchars($producto['NombreSupermercado']); ?></p>
-                        <?php endif; ?>
-                </div>
+                 <a href="gestores/comparar.php?id=<?= $producto['ID_Producto'] ?>" class="producto-link">
+                    <div class="producto">
+                        <img src="includes/img/<?php echo htmlspecialchars($producto['Imagen']); ?>"
+                            onerror="this.onerror=null; this.src='includes/img/default.png';"
+                            alt="<?php echo htmlspecialchars($producto['NombreProducto']); ?>">
+                            <h3><?php echo htmlspecialchars($producto['NombreProducto']); ?></h3>
+                            <p><?php echo htmlspecialchars($producto['Descripcion']); ?></p>
+                            <p><strong>Marca:</strong> <?php echo htmlspecialchars($producto['Marca']); ?></p>
+                                <p><strong>Precio desde:</strong>
+                            <?php echo $producto['PrecioMinimo'] !== null
+                                ? number_format($producto['PrecioMinimo'], 2) . ' €'
+                                : 'No disponible'; ?> </p>
+                                <?php if ($producto['NombreSupermercado']): ?>
+                                <p><strong>Supermercado:</strong> <?php echo htmlspecialchars($producto['NombreSupermercado']); ?></p>
+                                <?php endif; ?>
+                    </div>
+                </a>
             <?php endforeach; ?>
         <?php else: ?>
             <p>No hay productos disponibles.</p>
