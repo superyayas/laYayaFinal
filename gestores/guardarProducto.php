@@ -1,7 +1,6 @@
 <?php
 include_once '../config.php';
 include_once '../includes/funciones.php';
-include_once '../utils.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -23,8 +22,19 @@ if ($datos && count($datos) === 5) {
 
     // Insertar producto
 
-    //Añadir una imagen al producto
-    $imagen = imagenPorNombre($nombre);
+// Obtener nombre de la categoría por ID
+    $stmt_categoria = $conexion->prepare("SELECT Nombre FROM Categoria WHERE ID_Categoria = ?");
+    $stmt_categoria->bind_param("i", $id_categoria);
+    $stmt_categoria->execute();
+    $resultado = $stmt_categoria->get_result();
+
+        if ($resultado && $fila = $resultado->fetch_assoc()) {
+            $nombre_categoria = $fila['Nombre'];
+            $imagen = imagenPorNombreCategoria($nombre_categoria); // esta función debe estar definida en funciones.php
+        } else {
+            $imagen = 'default.png';
+        }
+        $stmt_categoria->close();
 
     $sql = "INSERT INTO producto (NombreProducto, Descripcion, ID_Categoria, Marca, Imagen)
             VALUES (?, ?, ?, ?, ?)";

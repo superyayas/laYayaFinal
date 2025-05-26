@@ -33,3 +33,17 @@ function conectarBD() {
     }
     return $conexion;
 }
+ //Función para añadir la imagen por categoría
+
+function imagenPorNombreCategoria(string $nombreCategoria): string {
+    $nombre = strtolower(trim($nombreCategoria));
+  
+    return match ($nombre) {
+        'lacteos','lácteos'   => 'leche.png',
+        'carnes'  => 'pechugaPollo.png',
+        'bebidas'   => 'cocaCola.png',
+        'harinas'     => 'pan.png',
+        'pescados'     => 'pescado.png',
+        default   => 'default.png',
+    };
+}
