@@ -2,7 +2,9 @@
 include_once __DIR__ . '/../config.php';
 
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
     $tiempo_maximo = 30 * 60;
 
     // Si ya existe un registro de tiempo en sesión, compruebo caducidad

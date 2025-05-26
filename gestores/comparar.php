@@ -87,8 +87,9 @@ $precios = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                 <p>No hay precios registrados para este producto aún.</p>
             <?php endif; ?>
         </div>
-
-        <p><a href="../index.php">← Volver al inicio</a></p>
+            <div class="volver-container">
+                <p><a href="../index.php" class="boton boton-volver">← Volver al inicio</a></p>
+            </div>
     </div>
 </body>
 </html>

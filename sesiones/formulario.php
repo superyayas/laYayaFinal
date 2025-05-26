@@ -22,8 +22,7 @@ session_start();
     $email     = $_POST['email']     ?? '';
     $contrasena= $_POST['contrasena']?? '';
   ?>
-  <section class="completo">
-    <article class="centrado">
+  <div class="formulario-registro-container">
       <h2>Regístrate</h2>
       <form action="confirmRegistro.php" method="post">
         <div>
@@ -52,11 +51,13 @@ session_start();
                  value="<?= htmlspecialchars($contrasena) ?>" required>
         </div>
         <div>
-          <button type="submit">Enviar</button>
+          <div class="form-boton-centrado">
+          <button type="submit" class="botonForm botonForm-enviar">Enviar</button>
+          </div>
         </div>
       </form>
-    </article>
-  </section>
+      </div>
+   
 
   <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>

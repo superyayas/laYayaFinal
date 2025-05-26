@@ -40,9 +40,11 @@ include 'includes/cabecera.php';
             <?php foreach ($productos as $producto): ?>
                  <a href="gestores/comparar.php?id=<?= $producto['ID_Producto'] ?>" class="producto-link">
                     <div class="producto">
-                        <img src="includes/img/<?php echo htmlspecialchars($producto['Imagen']); ?>"
+                        <div class="contenedor-img">
+                            <img src="includes/img/<?php echo htmlspecialchars($producto['Imagen']); ?>"
                             onerror="this.onerror=null; this.src='includes/img/default.png';"
                             alt="<?php echo htmlspecialchars($producto['NombreProducto']); ?>">
+                        </div>
                             <h3><?php echo htmlspecialchars($producto['NombreProducto']); ?></h3>
                             <p><?php echo htmlspecialchars($producto['Descripcion']); ?></p>
                             <p><strong>Marca:</strong> <?php echo htmlspecialchars($producto['Marca']); ?></p>

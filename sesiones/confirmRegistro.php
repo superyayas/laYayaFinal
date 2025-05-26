@@ -21,8 +21,7 @@ list($nombre, $apellidos, $usuario, $email, $contrasena, $ok) = $datos;
 <body>
   <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
 
-  <section class="completo">
-    <article class="centrado">
+ <div class="formulario-registro-container">
       <h2>Confirma tus datos</h2>
       <form action="altaUsuario.php" method="post">
         <!-- Ocultamos los valores para reenviarlos -->
@@ -39,16 +38,17 @@ list($nombre, $apellidos, $usuario, $email, $contrasena, $ok) = $datos;
         <p><strong>Contraseña:</strong> <?= htmlspecialchars($contrasena) ?></p>
 
         <div>
-          <button type="submit">Confirmar</button>
-          <button type="submit"
-          formaction="formulario.php"
-          formmethod="post">
-            Corregir
-          </button>
+          <div class="form-boton-centrado">
+            <button type="submit" class="botonForm botonForm-enviar">Confirmar</button>
+            <button type="submit"formaction="formulario.php"formmethod="post"class="botonForm botonForm-volver">
+    Corregir
+  </button>
+</div>
+
         </div>
       </form>
-    </article>
-  </section>
+      </div>
+   
 
   <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>
