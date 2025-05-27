@@ -7,13 +7,19 @@ include_once __DIR__ . '/../config.php';
 <head>
   <meta charset="UTF-8">
   <title>Área de Usuario</title>
-  <link rel="stylesheet" href="../includes/styles.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>includes/styles.css">
+
 </head>
 <body>
   <?php
   include "../includes/cabecera.php";
   ?>
   <h1>Bienvenido, <?= htmlspecialchars($_SESSION['usuario']) ?></h1>
+
+<!-- Aquí resultado del buscador -->
+ 
+<div id="resultados"></div>
+
     <h2>Gestión de Mis Productos</h2>
       <div class="botones-crud">
           <a href="<?= BASE_URL ?>gestores/listar_productos.php" class="boton"> Ver Mis Productos </a>

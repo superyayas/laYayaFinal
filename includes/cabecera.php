@@ -23,6 +23,8 @@ if (session_status() === PHP_SESSION_NONE) {
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="<?= BASE_URL ?>includes/styles.css">
+
 </head>
 <body>
   <header>
@@ -48,7 +50,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         9.5 12.99 14 10.5 14z"/>
               </svg>
         </button>
-        <div id="resultados"></div>
+        
 
   
     <?php if (!isset($_SESSION['usuario'])): ?>

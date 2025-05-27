@@ -21,43 +21,38 @@ $supermercados = $conexion->query("SELECT ID_Supermercado, Nombre FROM supermerc
 
 <?php include_once '../includes/cabecera.php'; ?>
 
-<h2>Añadir Nuevo Producto</h2>
+<section class="formulario-producto">
+  <h2>Añadir Nuevo Producto</h2>
 
-<form action="../gestores/guardarProducto.php" method="post">
-  <label>Nombre del producto:</label><br>
-  <input type="text" name="nombre_producto" required><br><br>
+  <form action="../gestores/guardarProducto.php" method="post" class="form-add-producto">
+    <input type="text" name="nombre_producto" placeholder="Nombre del producto" required>
+    
+    <textarea name="descripcion" placeholder="Descripción" required></textarea>
 
-  <label>Descripción:</label><br>
-  <textarea name="descripcion" required></textarea><br><br>
+    <input type="text" name="marca" placeholder="Marca">
 
-  <label>Marca:</label><br>
-  <input type="text" name="marca"><br><br>
+    <select name="id_supermercado" required>
+      <?php while ($fila = $supermercados->fetch_assoc()): ?>
+        <option value="<?= $fila['ID_Supermercado'] ?>"><?= htmlspecialchars($fila['Nombre']) ?></option>
+      <?php endwhile; ?>
+    </select>
 
-  <label>Supermercado:</label><br>
-  <select name="id_supermercado" required>
-    <?php while ($fila = $supermercados->fetch_assoc()): ?>
-      <option value="<?= $fila['ID_Supermercado'] ?>"><?= htmlspecialchars($fila['Nombre']) ?></option>
-    <?php endwhile; ?>
-  </select><br><br>
+    <input type="number" step="0.01" name="precio" placeholder="Precio (€)" required>
 
-  <label>Precio:</label><br>
-  <input type="number" step="0.01" name="precio" required><br><br>
+    <select name="id_categoria" required>
+      <?php while ($fila = $categorias->fetch_assoc()): ?>
+        <option value="<?= $fila['ID_Categoria'] ?>"><?= htmlspecialchars($fila['Nombre']) ?></option>
+      <?php endwhile; ?>
+    </select>
 
-  <label>Categoría:</label><br>
-  <select name="id_categoria" required>
-    <?php while ($fila = $categorias->fetch_assoc()): ?>
-      <option value="<?= $fila['ID_Categoria'] ?>"><?= htmlspecialchars($fila['Nombre']) ?></option>
-    <?php endwhile; ?>
-  </select><br><br>
+    <input type="submit" value="Añadir Producto" >
 
-  <div class="botones-crud">
-    <input type="submit" class="boton" value="Añadir Producto">
+  </form>
+
+  <div class="boton-salir-container">
+    <button onclick="location.href='<?= BASE_URL ?>/../sesiones/accesoUser.php'" class="boton-salir">← Volver a mi perfil</button>
   </div>
-</form>
-
-<p><a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver a mi perfil</a></p>
-
-<?php include_once '../includes/pie.html'; ?>
+</section>
 
 </body>
 </html>

@@ -1,18 +1,15 @@
-
-      
-//Barra de buscador
+// Barra de buscador
 
 function buscador() {
   const resultados = document.getElementById('resultados');
   const texto      = document.getElementById('buscador').value.trim();
 
   if (!texto) {
-    resultados.innerHTML = '<p>Escribe algo para buscar.</p>';
+    resultados.style.display = "none"; // ocultamos
+    resultados.innerHTML = '';
     return;
   }
 
-  // Como window.BASE_URL === '/laYayaFinal/'
-  // esto monta: '/laYayaFinal/includes/buscar_producto.php?nombre=Leche'
   const url = `${window.BASE_URL}includes/buscar_producto.php?nombre=${encodeURIComponent(texto)}`;
   console.log('BUSCANDO URL ABSOLUTA:', url);
 
@@ -21,12 +18,26 @@ function buscador() {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return res.text();
     })
-    .then(html => resultados.innerHTML = html)
+    .then(html => {
+      resultados.innerHTML = `
+        <button onclick="cerrarResultados()" class="btn-cerrar">Cerrar</button>
+        ${html}
+      `;
+      resultados.style.display = "block"; // hace que se muestre
+    })
     .catch(err => {
       console.error('Error al buscar:', err);
       resultados.innerHTML = '<p>Error al buscar. Inténtalo de nuevo.</p>';
     });
 }
+
+// Nueva función para cerrar el resultado
+function cerrarResultados() {
+  const resultados = document.getElementById('resultados');
+  resultados.style.display = "none";
+  resultados.innerHTML = '';
+}
+
 // Modal de confirmación para eliminar producto
 let formularioActual = null;
 

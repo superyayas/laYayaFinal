@@ -28,56 +28,59 @@ yayaBD::cerrarConexion();
 </head>
 <body>
     <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
-<section class="completo">
-    <article class="centrado">
-        <h1>Productos disponibles</h1>
+<section class="seccion-listado">
+  <h1>🛒 Productos disponibles</h1>
 
-        <?php if ($resultados && count($resultados) > 0): ?>
-            <table class="tabla">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Marca</th>
-                        <th>Precio</th>
-                        <th>Supermercado</th>
-                        <th>Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($resultados as $fila): ?>
-                        <tr>
-                            <td><?= htmlspecialchars($fila['ID_Producto']) ?></td>
-                            <td><?= htmlspecialchars($fila['NombreProducto']) ?></td>
-                            <td><?= htmlspecialchars($fila['Marca']) ?></td>
-                            <td><?= htmlspecialchars(number_format($fila['Precio'], 2)) ?> €</td>
-                            <td><?= htmlspecialchars($fila['NombreSupermercado']) ?></td>
-                            <td class="acciones">
-                                <form action="cesta.php" method="post" style="display:inline;">
-                                    <input type="hidden" name="ID_Producto" value="<?= htmlspecialchars($fila['ID_Producto']) ?>">
-                                    <input type="submit" class="boton boton-añadir" value="Añadir a la cesta">
-                                </form>
-                                <form action="modificar_producto.php" method="get" style="display:inline;">
-                                    <input type="hidden" name="ID_Producto" value="<?= htmlspecialchars($fila['ID_Producto']) ?>">
-                                    <input type="submit" class="boton boton-modificar" value="Modificar Producto">
-                                </form>
-                               <form action="eliminar_producto.php" method="post" class="form-eliminar">
-                                    <input type="hidden" name="ID_Producto" value="<?= htmlspecialchars($fila['ID_Producto']) ?>">
-                                    <input type="submit" class="boton boton-eliminar" value="Eliminar Producto">
-                                </form>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        <?php else: ?>
-            <p>No hay productos disponibles.</p>
-        <?php endif; ?>
+  <?php if ($resultados && count($resultados) > 0): ?>
+    <div class="tabla-wrapper">
+      <table class="tabla-productos">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th>Supermercado</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($resultados as $fila): ?>
+            <tr>
+              <td><?= htmlspecialchars($fila['ID_Producto']) ?></td>
+              <td><?= htmlspecialchars($fila['NombreProducto']) ?></td>
+              <td><?= htmlspecialchars($fila['Marca']) ?></td>
+              <td><?= htmlspecialchars(number_format($fila['Precio'], 2)) ?> €</td>
+              <td><?= htmlspecialchars($fila['NombreSupermercado']) ?></td>
+              <td class="acciones">
+                <form action="cesta.php" method="post">
+                  <input type="hidden" name="ID_Producto" value="<?= htmlspecialchars($fila['ID_Producto']) ?>">
+                  <input type="submit" class="boton boton-añadir" value="Añadir a la cesta">
+                </form>
+                <form action="modificar_producto.php" method="get">
+                  <input type="hidden" name="ID_Producto" value="<?= htmlspecialchars($fila['ID_Producto']) ?>">
+                  <input type="submit" class="boton boton-modificar" value="Modificar">
+                </form>
+                <form action="eliminar_producto.php" method="post" class="form-eliminar">
+                  <input type="hidden" name="ID_Producto" value="<?= htmlspecialchars($fila['ID_Producto']) ?>">
+                  <input type="submit" class="boton boton-eliminar" value="Eliminar">
+                </form>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+  <?php else: ?>
+    <p>No hay productos disponibles.</p>
+  <?php endif; ?>
 
-        <p><a href="cesta.php">Ver mi cesta de la compra</a></p>
-        <p><a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver a mi perfil</a></p>
-    </article>
+  <div class="botones-navegacion">
+    <a href="cesta.php" class="boton"> Ver mi cesta</a>
+    <a href="<?= BASE_URL ?>/../sesiones/accesoUser.php" class="boton">← Volver al perfil</a>
+  </div>
 </section>
+
 
 <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 <!-- Modal de confirmación -->

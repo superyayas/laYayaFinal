@@ -67,22 +67,33 @@ if ($datos && count($datos) === 5) {
         $stmt_precio = $conexion->prepare($sql_precio);
         $stmt_precio->bind_param("idii", $id_producto, $precio, $id_supermercado, $id_usuario);
         $stmt_precio->execute();
-        echo "<h2>✅ Producto y precio añadidos correctamente</h2>";
-        $stmt_precio->close();
+        
+        $titulo = "Producto añadido";
+        $mensaje = "El producto y su precio se han añadido correctamente.";
     } else {
-        echo "<h2>⚠️ Ya has registrado este precio para este producto y supermercado</h2>";
+        $titulo = "Precio duplicado";
+        $mensaje = "Ya has registrado este precio para ese producto y supermercado.";
     }
     $stmt_check->close();
-
-    //Aplicar CSS
 } else {
-    echo "<h2>❌ Faltan campos del formulario</h2>";
+    $titulo = "Campos incompletos";
+    $mensaje = "Faltan campos obligatorios en el formulario.";
 }
 
 $conexion->close();
 ?>
 
-<br>
-<a href="../gestores/add_producto.php">➕ Añadir otro producto</a><br>
-<a href="../gestores/listar_productos.php">📄 Ver lista de productos</a>
+<?php include_once '../includes/cabecera.php'; ?>
+
+<section class="seccion-confirmacion">
+  <h2><?= $titulo ?></h2>
+  <p><?= $mensaje ?></p>
+
+  <div class="botones-confirmacion">
+    <a href="add_producto.php" class="boton"> Añadir otro producto</a>
+    <a href="listar_productos.php" class="boton"> Ver lista de productos</a>
+  </div>
+</section>
+
+<?php include_once '../includes/pie.html'; ?>
 
