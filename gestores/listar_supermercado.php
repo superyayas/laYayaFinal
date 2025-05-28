@@ -18,13 +18,13 @@ yayaBD::cerrarConexion();
 </head>
 <body>
   <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
-
-  <section class="completo">
-    <article class="centrado">
-      <h1>Supermercados registrados</h1>
+<main style="flex: 1;">
+  <section class="seccion-listado">
+      <h1> 🛒 Supermercados registrados</h1>
 
       <?php if ($resultados && count($resultados) > 0): ?>
-        <table class="tabla">
+        <div class="tabla-wrapper">
+        <table class="tabla-productos">
           <thead>
             <tr>
               <th>ID</th>
@@ -42,26 +42,30 @@ yayaBD::cerrarConexion();
                 <td><?= htmlspecialchars($fila['Direccion']) ?></td>
                 <td><?= htmlspecialchars($fila['Ciudad']) ?></td>
                 <td><?= htmlspecialchars($fila['Pais']) ?></td>
-                <td>
-                  <a href="editar_supermercado.php?id=<?= urlencode($fila['ID_Supermercado']) ?>">Modificar</a>
-                  |
-                  <form action="eliminar_supermercado.php" method="post" style="display:inline;" onsubmit="return confirm('¿Seguro que deseas eliminar este supermercado?');">
+                <td class="acciones">
+                  <form action="editar_supermercado.php" method="get" style="display:inline;">
                     <input type="hidden" name="id" value="<?= htmlspecialchars($fila['ID_Supermercado']) ?>">
-                    <button type="submit">Eliminar</button>
+                    <input type="submit" class="boton boton-modificar" value="Modificar">
+                  </form>
+                  |
+                  <form action="eliminar_supermercado.php" method="post" class="form-eliminar" style="display:inline;" onsubmit="return confirm('¿Seguro que deseas eliminar este supermercado?');">
+                    <input type="hidden" name="id" value="<?= htmlspecialchars($fila['ID_Supermercado']) ?>">
+                    <button type="submit" class="boton boton-eliminar">Eliminar</button>
                   </form>
                 </td>
               </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
+        </div>
       <?php else: ?>
         <p>No hay supermercados registrados.</p>
       <?php endif; ?>
-
-      <p><a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver a mi perfil</a></p>
-    </article>
+      <div class="botones-navegacion">
+          <a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver a mi perfil</a>
+      </div>
   </section>
-
+</main>
   <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>
 </html>

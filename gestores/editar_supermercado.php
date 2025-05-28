@@ -44,16 +44,28 @@ yayaBD::cerrarConexion();
 </head>
 <body>
     <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
-  <h2>Editar Supermercado</h2>
-  <p><strong>ID:</strong> <?= htmlspecialchars($id) ?></p>
-  <p><strong>Nombre actual:</strong> <?= htmlspecialchars($datos['Nombre']) ?></p>
-  <form method="post" action="">
-    <label>Nombre:<br><input type="text" name="nombre" value="<?= htmlspecialchars($datos['Nombre']) ?>" required></label><br>
-    <label>Dirección:<br><input type="text" name="direccion" value="<?= htmlspecialchars($datos['Direccion']) ?>" required></label><br>
-    <label>Ciudad:<br><input type="text" name="ciudad" value="<?= htmlspecialchars($datos['Ciudad']) ?>" required></label><br>
-    <label>País:<br><input type="text" name="pais" value="<?= htmlspecialchars($datos['Pais']) ?>" required></label><br>
-    <button type="submit">Guardar cambios</button>
-    <a href="listar_supermercado.php">Cancelar</a>
-  </form>
+<main style="flex: 1;">
+  <section class="formulario-producto">
+    <h2>Editar Supermercado</h2>
+        <h3><strong>ID:</strong> <?= htmlspecialchars($id) ?></h3>
+        <h3><strong>Nombre actual:</strong> <?= htmlspecialchars($datos['Nombre']) ?></h3>
+    <form method="post" class="form-add-producto" action="">
+      
+      <label>Nombre:<input type="text" name="nombre" value="<?= htmlspecialchars($datos['Nombre']) ?>" required></label>
+      <label>Dirección:<input type="text" name="direccion" value="<?= htmlspecialchars($datos['Direccion']) ?>" required></label>
+      <label>Ciudad:<input type="text" name="ciudad" value="<?= htmlspecialchars($datos['Ciudad']) ?>" required></label>
+      <label>País:<input type="text" name="pais" value="<?= htmlspecialchars($datos['Pais']) ?>" required></label>
+
+    <div class="botones-crud">
+  <input type="submit" class="boton" value="Guardar cambios">
+  <a class="boton boton-salir" href="listar_supermercado.php">Cancelar</a>
+</div>
+  
+  </section>
+</main>
+<?php
+    include "../includes/pie.html";
+    ?>
 </body>
+   
 </html>

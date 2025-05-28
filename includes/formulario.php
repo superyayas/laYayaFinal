@@ -10,6 +10,7 @@
     ?>
 </head>
 <body>
+   <main style="flex: 1;"> 
     <div class="formulario-registro-container">
         <h2>Formulario de Registro</h2>
         <form action="../sesiones/confirmRegistro.php" method="post">
@@ -45,5 +46,10 @@
             </div>
         </form>
     </div>
+   </main>
+     <?php
+  include "pie.html";
+  ?>
+
 </body>
 </html>

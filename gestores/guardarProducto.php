@@ -84,7 +84,7 @@ $conexion->close();
 ?>
 
 <?php include_once '../includes/cabecera.php'; ?>
-
+<main style="flex: 1;">
 <section class="seccion-confirmacion">
   <h2><?= $titulo ?></h2>
   <p><?= $mensaje ?></p>
@@ -94,6 +94,6 @@ $conexion->close();
     <a href="listar_productos.php" class="boton"> Ver lista de productos</a>
   </div>
 </section>
-
+</main>
 <?php include_once '../includes/pie.html'; ?>
 

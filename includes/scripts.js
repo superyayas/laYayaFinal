@@ -67,3 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function cerrarModal() {
   document.getElementById('modalConfirmacion').style.display = 'none';
 }
+
+function cerrarResultados() {
+  document.getElementById("resultados").style.display = "none";
+}

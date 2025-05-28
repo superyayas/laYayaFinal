@@ -51,6 +51,7 @@ $precios = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
 </head>
 <body>
+     <main style="flex: 1;">
     <div class="comparador-container">
         <div class="producto-info">
             <img src="../includes/img/<?php echo htmlspecialchars($producto['Imagen']); ?>"
@@ -91,5 +92,9 @@ $precios = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                 <p><a href="../index.php" class="boton boton-volver">← Volver al inicio</a></p>
             </div>
     </div>
+     </main>
+    <?php
+    include "../includes/pie.html";
+    ?>
 </body>
 </html>

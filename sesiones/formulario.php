@@ -13,7 +13,7 @@ session_start();
   <?php include_once __DIR__ . '/../includes/cabecera.php'; 
   
   ?>
-
+<main style="flex: 1;">
   <?php
     // Si venimos de un POST fallido, pre-llenamos
     $nombre    = $_POST['nombre']    ?? '';
@@ -57,7 +57,7 @@ session_start();
         </div>
       </form>
       </div>
-   
+</main>
 
   <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>

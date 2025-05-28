@@ -20,7 +20,7 @@ $supermercados = $conexion->query("SELECT ID_Supermercado, Nombre FROM supermerc
 <body>
 
 <?php include_once '../includes/cabecera.php'; ?>
-
+<main style="flex: 1;">
 <section class="formulario-producto">
   <h2>Añadir Nuevo Producto</h2>
 
@@ -53,7 +53,9 @@ $supermercados = $conexion->query("SELECT ID_Supermercado, Nombre FROM supermerc
     <button onclick="location.href='<?= BASE_URL ?>/../sesiones/accesoUser.php'" class="boton-salir">← Volver a mi perfil</button>
   </div>
 </section>
+</main>
 
+ <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>
 </html>
 

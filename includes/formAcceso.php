@@ -9,6 +9,7 @@
 	<?php
 	include "cabecera.php";
 	?>
+	<main style="flex: 1;">
 	<section class="completo">
 		<article class="centrado">
 		
@@ -24,6 +25,7 @@
 			</form>
 		</article>
 	</section>
+	</main>
 </body>
 <?php
 	include "pie.html";
