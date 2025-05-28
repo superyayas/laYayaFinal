@@ -79,4 +79,9 @@ if (session_status() === PHP_SESSION_NONE) {
 
   <script src="<?= BASE_URL ?>includes/scripts.js" defer></script>
   </header>
-
+  
+  <!-- Aquí resultado del buscador -->
+ 
+<div id="resultados"></div>
+    </body>
+</html>

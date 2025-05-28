@@ -16,9 +16,7 @@ include_once __DIR__ . '/../config.php';
   ?>
   <h1>Bienvenido, <?= htmlspecialchars($_SESSION['usuario']) ?></h1>
 
-<!-- Aquí resultado del buscador -->
- 
-<div id="resultados"></div>
+
 
     <h2>Gestión de Mis Productos</h2>
       <div class="botones-crud">

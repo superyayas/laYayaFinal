@@ -394,7 +394,7 @@ input {
 
 /*Footer*/
 .pie {
-    background-color: #333;
+    background-color: rgb(117, 35, 117);
     color: white;
     text-align: center;
     padding: 40px 20px;
@@ -412,13 +412,13 @@ input {
 }
 
 .pie a {
-    color: #ff6347;
+    color: black;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .pie a:hover {
-    color: #ffffff; /* Cambia a blanco al pasar el ratón */
+    color: purple; /* Cambia a blanco al pasar el ratón */
 }
 
 /*Contacto*/
