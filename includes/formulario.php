@@ -10,7 +10,7 @@
     ?>
 </head>
 <body>
-    
+    <div class="formulario-registro-container">
         <h2>Formulario de Registro</h2>
         <form action="../sesiones/confirmRegistro.php" method="post">
             <div>
@@ -39,9 +39,11 @@
             </div>
 
             <div>
-                <button type="submit">Enviar</button>
+                 <div class="form-boton-centrado">
+                    <button type="submit" class="botonForm botonForm-enviar">Enviar</button>
+                </div>
             </div>
         </form>
-
+    </div>
 </body>
 </html>

@@ -23,10 +23,11 @@ CREATE TABLE Categoria (
 
 CREATE TABLE Producto (
     ID_Producto INT AUTO_INCREMENT PRIMARY KEY,
-    NombreProducto VARCHAR(100) NOT NULL,
+    NombreProducto VARCHAR(100) NOT NULL UNIQUE,
     Descripcion TEXT NULL,
     ID_Categoria INT NOT NULL,
-    Marca VARCHAR(50) NULL,
+    Marca VARCHAR(50) NULL UNIQUE,
+    Imagen VARCHAR(255) NULL,
     FOREIGN KEY (ID_Categoria) REFERENCES Categoria(ID_Categoria)
 );
 
@@ -75,11 +76,13 @@ INSERT INTO Categoria (Nombre) VALUES
 ('Lácteos'),
 ('Carnes'),
 ('Bebidas');
+('Harinas');
+('Pescados');
 
-INSERT INTO Producto (NombreProducto, Descripcion, ID_Categoria, Marca) VALUES
-('Leche Entera', 'Leche entera 1L', 1, 'Marca A'),
-('Pechuga de Pollo', 'Pechuga de pollo fresca', 2, 'Marca B'),
-('Coca-Cola 2L', 'Refresco de cola 2 litros', 3, 'Coca-Cola');
+INSERT INTO Producto (NombreProducto, Descripcion, ID_Categoria, Marca, Imagen) VALUES
+('Leche Entera', 'Leche entera 1L', 1, 'Marca A',''),
+('Pechuga de Pollo', 'Pechuga de pollo fresca', 2, 'Marca B',''),
+('Coca-Cola 2L', 'Refresco de cola 2 litros', 3, 'Coca-Cola','');
 
 
 INSERT INTO PrecioProducto (ID_Producto, ID_Supermercado, Precio, ID_Usuario) VALUES

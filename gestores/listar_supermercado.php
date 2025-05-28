@@ -42,6 +42,14 @@ yayaBD::cerrarConexion();
                 <td><?= htmlspecialchars($fila['Direccion']) ?></td>
                 <td><?= htmlspecialchars($fila['Ciudad']) ?></td>
                 <td><?= htmlspecialchars($fila['Pais']) ?></td>
+                <td>
+                  <a href="editar_supermercado.php?id=<?= urlencode($fila['ID_Supermercado']) ?>">Modificar</a>
+                  |
+                  <form action="eliminar_supermercado.php" method="post" style="display:inline;" onsubmit="return confirm('¿Seguro que deseas eliminar este supermercado?');">
+                    <input type="hidden" name="id" value="<?= htmlspecialchars($fila['ID_Supermercado']) ?>">
+                    <button type="submit">Eliminar</button>
+                  </form>
+                </td>
               </tr>
             <?php endforeach; ?>
           </tbody>

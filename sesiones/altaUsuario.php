@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once __DIR__ . '/../includes/funciones.php';
 include_once __DIR__ . '/../modelo/bdd/mysql.php';
 
@@ -43,21 +42,30 @@ yayaBD::cerrarConexion();
   <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
 
   <?php if ($insert): ?>
-    <section class="completo">
-      <article class="centrado">
-        <h1>Usuario creado satisfactoriamente</h1>
+  <!--  USUARIO INSERTADO CORRECTAMENTE -->
+  <section class="completo">
+    <article class="centrado">
+      <h1>Usuario creado satisfactoriamente</h1>
+      <div class="cuadro-usuario-creado">
         <p>El usuario <strong><?= htmlspecialchars($usuario) ?></strong> ha sido registrado.</p>
-        <a href="../index.php">Volver al inicio</a>
-      </article>
-    </section>
-  <?php else: ?>
-    <section class="completo">
-      <article class="centrado">
-        <h1><?= isset($errorMsg) ? htmlspecialchars($errorMsg) : 'Error al crear el usuario' ?></h1>
-        <p><a href="formulario.php">Volver al formulario</a></p>
-      </article>
-    </section>
-  <?php endif; ?>
+      </div>
+      <div class="form-boton-centrado">
+        <a href="../index.php" class="boton-altaUsuario">Volver al inicio</a>
+      </div>
+    </article>
+  </section>
+<?php else: ?>
+  <!--  ERROR AL CREAR USUARIO -->
+  <section class="completo">
+    <article class="centrado">
+      <h1><?= isset($errorMsg) ? htmlspecialchars($errorMsg) : 'Error al crear el usuario' ?></h1>
+      <div class="form-boton-centrado">
+        <a href="formulario.php" class="botonForm botonForm-volver">← Volver al formulario</a>
+      </div>
+    </article>
+  </section>
+<?php endif; ?>
+
 
   <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>

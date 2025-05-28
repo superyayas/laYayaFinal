@@ -1,36 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Formulario de acceso</title>
-	<link rel="stylesheet" href="styles.css">
-	<?php
-    include "cabecera.php";
-    ?>
+  <meta charset="UTF-8">
+  <title>Formulario de acceso</title>
+  <link rel="stylesheet" href="styles.css">
+  <?php include "cabecera.php"; ?>
 </head>
 <body>
 
-<section class="completo">
-    <article class="centrado">
-	
-	<form action="../sesiones/controlSesiones/validarSesion.php" method="POST">
-	<h2>Formulario de Acceso</h2>
-    <div class="formulario-conjunto">
-	<label>Nombre:</label>
-	<input type="text" name="usuario"/>
+<div class="formulario-login-container">
+  <h2>Formulario de Acceso</h2>
+
+  <form action="../sesiones/controlSesiones/validarSesion.php" method="POST">
+    <div class="form-grupo">
+      <label for="usuario">Usuario:</label>
+      <input type="text" name="usuario" id="usuario" required />
+    </div>
+
+    <div class="form-grupo">
+      <label for="contrasena">Clave:</label>
+      <input type="password" name="contrasena" id="contrasena" required />
+    </div>
+
+    <div class="form-boton-centrado">
+      <button type="submit" class="botonForm botonForm-enviar">Acceder</button>
+      <a href="formulario.php" class="botonForm botonForm-volver">Nuevo Registro</a>
+    </div>
+  </form>
 </div>
-<div class="formulario-conjunto">
-	<label>Clave:</label>
-	<input type="password" name="contrasena"/>
-</div>
-<div class="formulario-conjunto">
-	<input type="submit" value="Acceder"/>
-</div>
-	</form>
-    <a href="includes/formulario.php">Nuevo Registro</a>
-</article>
-</section>
+
+<?php include "pie.html"; ?>
 </body>
 </html>
 
