@@ -9,7 +9,7 @@
 <body>
 
 <?php include 'cabecera.php'; ?>
-
+<main style="flex: 1;">
 <section class="seccion-contacto">
   <h2>Formulario de Contacto</h2>
   
@@ -24,8 +24,10 @@
   <button type="button" onclick="window.location.href='../index.php'" class="boton-salir">Salir</button>
 </div>
 </section>
-
-<?php include 'pie.html'; ?>
+</main>
+ <?php
+  include "pie.html";
+  ?>
 
 </body>
 </html>

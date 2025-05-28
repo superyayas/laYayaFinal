@@ -44,7 +44,7 @@ yayaBD::cerrarConexion();
 </head>
 <body>
     <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
-
+<main style="flex: 1;">
   <section class="formulario-producto">
     <h2>Editar Supermercado</h2>
         <h3><strong>ID:</strong> <?= htmlspecialchars($id) ?></h3>
@@ -62,6 +62,7 @@ yayaBD::cerrarConexion();
 </div>
   
   </section>
+</main>
 <?php
     include "../includes/pie.html";
     ?>

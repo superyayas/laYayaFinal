@@ -28,6 +28,7 @@ yayaBD::cerrarConexion();
 </head>
 <body>
     <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
+    <main style="flex: 1;">
 <section class="seccion-listado">
   <h1>🛒 Productos disponibles</h1>
 
@@ -80,7 +81,7 @@ yayaBD::cerrarConexion();
     <a href="<?= BASE_URL ?>/../sesiones/accesoUser.php" class="boton">← Volver al perfil</a>
   </div>
 </section>
-
+    </main>
 
 <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 <!-- Modal de confirmación -->

@@ -35,6 +35,7 @@ $productos = yayaBD::consultaLectura(" SELECT p.*, pp.Precio AS PrecioMinimo, s.
 <?php
 include 'includes/cabecera.php';
 ?>
+<main style="flex: 1;">
  <div class="productos-container">
         <?php if ($productos): ?>
             <?php foreach ($productos as $producto): ?>
@@ -62,7 +63,7 @@ include 'includes/cabecera.php';
             <p>No hay productos disponibles.</p>
         <?php endif; ?>
     </div>
-			
+</main>		
 <?php
 include "includes/pie.html";
 ?>

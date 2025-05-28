@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
-
+<main style="flex: 1;">
 <section class="formulario-producto">
   <h2>Añadir un nuevo supermercado</h2>
 
@@ -66,13 +66,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <input type="text" id="pais" placeholder="País del supermercado" name="pais" required>
 
-        <input type="submit" value="Añadir supermercado">
+        <input type="submit" value="Añadir Super">
       </form>
   <div class="boton-salir-container">
             <button onclick="location.href='<?= BASE_URL ?>/../sesiones/accesoUser.php'" class="boton-salir">← Volver a mi perfil</button>
   </div>
 </section>
-
+</main>
 
   <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>

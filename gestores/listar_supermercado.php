@@ -18,7 +18,7 @@ yayaBD::cerrarConexion();
 </head>
 <body>
   <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
-
+<main style="flex: 1;">
   <section class="seccion-listado">
       <h1> 🛒 Supermercados registrados</h1>
 
@@ -65,7 +65,7 @@ yayaBD::cerrarConexion();
           <a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver a mi perfil</a>
       </div>
   </section>
-
+</main>
   <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>
 </html>

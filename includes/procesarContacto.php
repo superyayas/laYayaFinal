@@ -27,13 +27,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php include 'cabecera.php'; ?>
 
+<main style="flex: 1;">
 <section class="seccion-contacto">
     <h2>Mensaje enviado correctamente</h2>
     <p><?= $mensaje ?></p>
     <br>
     <a href="../index.php">Volver a la página de inicio</a>
 </section>
-
+</main>
 <?php include 'pie.html'; ?>
 
 </body>

@@ -23,6 +23,9 @@ body {
     padding-top: 80px; 
     font-family: var(--fuente-principal);
     background: var(--color-fondo);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 /* Header */
 header {
@@ -106,7 +109,6 @@ a:hover {
   text-align: left;
 }
 
-
 #resultados ul {
   list-style: none;
   padding: 0;
@@ -141,7 +143,6 @@ a:hover {
   color: #6a1b9a;
   border: 1px solid #6a1b9a;
 }
-
 
 /*Fin de barra de buscador*/
 
@@ -534,10 +535,25 @@ input {
   }
 
    /*Gestion Mis productos*/
+   /* Centrado general para secciones */
+ .seccion-centrada {
+  text-align: center;
+  background-color: white;
+  }
+  /* Contenedor general de secciones */
+.seccion-contenedor {
+  background-color: white;
+  border: 2px solid #6a1b9a;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 30px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
    .botones-crud {
     display: flex;
     gap: 20px;
-    justify-content: left;
+    justify-content: center;
     margin-bottom: 30px;
   }
   .boton {

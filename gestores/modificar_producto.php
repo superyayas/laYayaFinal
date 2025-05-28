@@ -73,6 +73,7 @@ yayaBD::cerrarConexion();
 <body>
 
 <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
+<main style="flex: 1;">
 <section class="formulario-producto">
   <h2>Modificar Producto</h2>
   <h3><strong>ID:</strong> <?= htmlspecialchars($id) ?></h3><br>
@@ -107,7 +108,7 @@ yayaBD::cerrarConexion();
     </form>
     <p><a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver a mi perfil</a></p>
  </section>
-
+</main>
 
 <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>

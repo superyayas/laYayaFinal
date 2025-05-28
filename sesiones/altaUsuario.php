@@ -40,7 +40,7 @@ yayaBD::cerrarConexion();
 </head>
 <body>
   <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
-
+<main style="flex: 1;">
   <?php if ($insert): ?>
   <!--  USUARIO INSERTADO CORRECTAMENTE -->
   <section class="completo">
@@ -65,7 +65,7 @@ yayaBD::cerrarConexion();
     </article>
   </section>
 <?php endif; ?>
-
+</main>
 
   <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>

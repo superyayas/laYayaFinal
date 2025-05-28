@@ -20,7 +20,7 @@ list($nombre, $apellidos, $usuario, $email, $contrasena, $ok) = $datos;
 </head>
 <body>
   <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
-
+<main style="flex: 1;">
  <div class="formulario-registro-container">
       <h2>Confirma tus datos</h2>
       <form action="altaUsuario.php" method="post">
@@ -48,7 +48,7 @@ list($nombre, $apellidos, $usuario, $email, $contrasena, $ok) = $datos;
         </div>
       </form>
       </div>
-   
+</main>
 
   <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>

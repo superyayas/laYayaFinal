@@ -7,7 +7,7 @@
   <?php include "cabecera.php"; ?>
 </head>
 <body>
-
+<main style="flex: 1;">
 <div class="formulario-login-container">
   <h2>Formulario de Acceso</h2>
 
@@ -28,7 +28,7 @@
     </div>
   </form>
 </div>
-
+</main>
 <?php include "pie.html"; ?>
 </body>
 </html>
