@@ -73,39 +73,41 @@ yayaBD::cerrarConexion();
 <body>
 
 <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
+<section class="formulario-producto">
+  <h2>Modificar Producto</h2>
+  <h3><strong>ID:</strong> <?= htmlspecialchars($id) ?></h3><br>
 
-<h2>Modificar Producto</h2>
-<p><strong>ID:</strong> <?= htmlspecialchars($id) ?></p>
+    <form method="post" class="form-add-producto" action="">
 
-<form method="post" action="">
-  <label>Nombre del producto:</label><br>
-  <input type="text" name="nombre_producto" value="<?= htmlspecialchars($producto['NombreProducto']) ?>" required><br><br>
+      <label>Nombre del producto:</label>
+      <input type="text" name="nombre_producto" value="<?= htmlspecialchars($producto['NombreProducto']) ?>" required>
 
-  <label>Descripción:</label><br>
-  <textarea name="descripcion" required><?= htmlspecialchars($producto['Descripcion']) ?></textarea><br><br>
+      <label>Descripción:</label>
+      <textarea name="descripcion" required><?= htmlspecialchars($producto['Descripcion']) ?></textarea>
 
-  <label>Marca:</label><br>
-  <input type="text" name="marca" value="<?= htmlspecialchars($producto['Marca']) ?>"><br><br>
+      <label>Marca:</label>
+      <input type="text" name="marca" value="<?= htmlspecialchars($producto['Marca']) ?>">
 
-  <label>Precio:</label><br>
-  <input type="number" step="0.01" name="precio" value="<?= htmlspecialchars($producto['Precio']) ?>" required><br><br>
+      <label>Precio:</label>
+      <input type="number" step="0.01" name="precio" value="<?= htmlspecialchars($producto['Precio']) ?>" required>
 
-  <label>Categoría:</label><br>
-  <select name="id_categoria" required>
-    <?php foreach ($categorias as $cat): ?>
-      <option value="<?= $cat['ID_Categoria'] ?>" <?= $cat['ID_Categoria'] == $producto['ID_Categoria'] ? 'selected' : '' ?>>
-        <?= htmlspecialchars($cat['Nombre']) ?>
-      </option>
-    <?php endforeach; ?>
-  </select><br><br>
+      <label>Categoría:</label>
+      <select name="id_categoria" required>
+        <?php foreach ($categorias as $cat): ?>
+          <option value="<?= $cat['ID_Categoria'] ?>" <?= $cat['ID_Categoria'] == $producto['ID_Categoria'] ? 'selected' : '' ?>>
+            <?= htmlspecialchars($cat['Nombre']) ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
 
-  <div class="botones-crud">
-    <input type="submit" class="boton" value="Guardar cambios">
-    <a class="boton boton-salir" href="listar_productos.php">Cancelar</a>
-  </div>
-</form>
+      <div class="botones-crud">
+        <input type="submit" class="boton" value="Guardar cambios">
+        <a class="boton boton-salir" href="listar_productos.php">Cancelar</a>
+      </div>
+    </form>
+    <p><a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver a mi perfil</a></p>
+ </section>
 
-<p><a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver a mi perfil</a></p>
 
 <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>

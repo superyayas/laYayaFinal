@@ -49,29 +49,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
 
-  <h1>Añadir un nuevo supermercado</h1>
+<section class="formulario-producto">
+  <h2>Añadir un nuevo supermercado</h2>
 
-  <?php if ($mensaje): ?>
-    <p class="mensaje"><?= htmlspecialchars($mensaje) ?></p>
-  <?php endif; ?>
+      <?php if ($mensaje): ?>
+        <p class="mensaje"><?= htmlspecialchars($mensaje) ?></p>
+      <?php endif; ?>
 
-  <form action="" method="post">
-    <label for="nombre">Nombre:</label><br>
-    <input type="text" id="nombre" name="nombre" required><br><br>
+      <form action="" method="post" class="form-add-producto">
 
-    <label for="direccion">Dirección:</label><br>
-    <input type="text" id="direccion" name="direccion" required><br><br>
+        <input type="text" id="nombre" placeholder="Nombre del supermercado" name="nombre" required>
 
-    <label for="ciudad">Ciudad:</label><br>
-    <input type="text" id="ciudad" name="ciudad" required><br><br>
+        <input type="text" id="direccion" placeholder="Dirección del supermercado" name="direccion" required>
 
-    <label for="pais">País:</label><br>
-    <input type="text" id="pais" name="pais" required><br><br>
+        <input type="text" id="ciudad" placeholder="Ciudad del supermercado" name="ciudad" required>
 
-    <input type="submit" value="Añadir supermercado">
-  </form>
+        <input type="text" id="pais" placeholder="País del supermercado" name="pais" required>
 
-  <p><a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver a mi perfil</a></p>
+        <input type="submit" value="Añadir supermercado">
+      </form>
+  <div class="boton-salir-container">
+            <button onclick="location.href='<?= BASE_URL ?>/../sesiones/accesoUser.php'" class="boton-salir">← Volver a mi perfil</button>
+  </div>
+</section>
+
 
   <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>

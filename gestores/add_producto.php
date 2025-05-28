@@ -54,6 +54,8 @@ $supermercados = $conexion->query("SELECT ID_Supermercado, Nombre FROM supermerc
   </div>
 </section>
 
+
+ <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>
 </html>
 
