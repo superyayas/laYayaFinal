@@ -29,7 +29,7 @@ $supermercados = $conexion->query("SELECT ID_Supermercado, Nombre FROM supermerc
     
     <textarea name="descripcion" placeholder="Descripción" required></textarea>
 
-    <input type="text" name="marca" placeholder="Marca">
+    <input type="text" name="marca" placeholder="Marca" required>
 
     <select name="id_supermercado" required>
       <?php while ($fila = $supermercados->fetch_assoc()): ?>

@@ -33,7 +33,7 @@ yayaBD::cerrarConexion();
 </head>
 <body>
 <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
-
+<main style="flex: 1;">
 <section class="completo">
 <article class="centrado">
     <h1>Comparación de Cestas</h1>
@@ -145,7 +145,7 @@ yayaBD::cerrarConexion();
     <p><a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver al perfil</a></p>
 </article>
 </section>
-
+</main>
 <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>
 </html>
