@@ -43,7 +43,7 @@ if ($datos && count($datos) === 5) {
     } else {
         // Insertar nuevo producto
         $sql_insert = "INSERT INTO producto (NombreProducto, Descripcion, ID_Categoria, Marca, Imagen)
-                       VALUES (?, ?, ?, ?, ?)";
+                        VALUES (?, ?, ?, ?, ?)";
         $stmt_insert = $conexion->prepare($sql_insert);
         $stmt_insert->bind_param("ssiss", $nombre, $descripcion, $id_categoria, $marca, $imagen);
         $stmt_insert->execute();
@@ -54,7 +54,7 @@ if ($datos && count($datos) === 5) {
 
     // Verificar si ya existe este precio para este producto y supermercado por este usuario
     $sql_check_precio = "SELECT 1 FROM precioproducto 
-                         WHERE ID_Producto = ? AND Precio = ? AND ID_Supermercado = ? AND ID_Usuario = ?";
+                        WHERE ID_Producto = ? AND Precio = ? AND ID_Supermercado = ? AND ID_Usuario = ?";
     $stmt_check = $conexion->prepare($sql_check_precio);
     $stmt_check->bind_param("idii", $id_producto, $precio, $id_supermercado, $id_usuario);
     $stmt_check->execute();
@@ -63,7 +63,7 @@ if ($datos && count($datos) === 5) {
     if ($stmt_check->num_rows === 0) {
         // Insertar nuevo precio
         $sql_precio = "INSERT INTO precioproducto (ID_Producto, Precio, ID_Supermercado, ID_Usuario)
-                       VALUES (?, ?, ?, ?)";
+                        VALUES (?, ?, ?, ?)";
         $stmt_precio = $conexion->prepare($sql_precio);
         $stmt_precio->bind_param("idii", $id_producto, $precio, $id_supermercado, $id_usuario);
         $stmt_precio->execute();
@@ -86,13 +86,13 @@ $conexion->close();
 <?php include_once '../includes/cabecera.php'; ?>
 <main style="flex: 1;">
 <section class="seccion-confirmacion">
-  <h2><?= $titulo ?></h2>
-  <p><?= $mensaje ?></p>
+<h2><?= $titulo ?></h2>
+<p><?= $mensaje ?></p>
 
-  <div class="botones-confirmacion">
+<div class="botones-confirmacion">
     <a href="add_producto.php" class="boton"> Añadir otro producto</a>
     <a href="listar_productos.php" class="boton"> Ver lista de productos</a>
-  </div>
+</div>
 </section>
 </main>
 <?php include_once '../includes/pie.html'; ?>
