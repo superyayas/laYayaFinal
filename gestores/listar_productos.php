@@ -3,19 +3,11 @@ include_once __DIR__ . '/../config.php';
 include_once __DIR__ . '/../modelo/bdd/mysql.php';
 
 // Obtenemos productos + precios + supermercados
-<<<<<<< HEAD
 $sql = "SELECT
             p.ID_Producto,
             p.NombreProducto,
             p.Marca,
             pr.Precio,
-=======
-$sql = "SELECT 
-            p.ID_Producto, 
-            p.NombreProducto, 
-            p.Marca, 
-            pr.Precio, 
->>>>>>> d7787d635fd3c628907de18707ec61e884fc82cb
             s.Nombre AS NombreSupermercado
         FROM producto p
         LEFT JOIN precioproducto pr ON p.ID_Producto = pr.ID_Producto
@@ -36,7 +28,6 @@ yayaBD::cerrarConexion();
 </head>
 <body>
     <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
-    <main style="flex: 1;">
 <section class="seccion-listado">
   <h1>🛒 Productos disponibles</h1>
 
@@ -62,13 +53,19 @@ yayaBD::cerrarConexion();
               <td><?= htmlspecialchars(number_format($fila['Precio'], 2)) ?> €</td>
               <td><?= htmlspecialchars($fila['NombreSupermercado']) ?></td>
               <td class="acciones">
-<<<<<<< HEAD
+
+                <!-- Cesta 1 -->
                 <form action="productos_cesta.php" method="post">
-=======
-                <form action="cesta.php" method="post">
->>>>>>> d7787d635fd3c628907de18707ec61e884fc82cb
                   <input type="hidden" name="ID_Producto" value="<?= htmlspecialchars($fila['ID_Producto']) ?>">
-                  <input type="submit" class="boton boton-añadir" value="Añadir a la cesta">
+                  <input type="hidden" name="cesta" value="1">
+                  <input type="submit" class="boton boton-añadir" value="Añadir a la cesta 1">
+                </form>
+
+                <!-- Cesta 2 -->
+                <form action="productos_cesta.php" method="post">
+                  <input type="hidden" name="ID_Producto" value="<?= htmlspecialchars($fila['ID_Producto']) ?>">
+                  <input type="hidden" name="cesta" value="2">
+                  <input type="submit" class="boton boton-añadir" value="Añadir a la cesta 2">
                 </form>
                 <form action="modificar_producto.php" method="get">
                   <input type="hidden" name="ID_Producto" value="<?= htmlspecialchars($fila['ID_Producto']) ?>">
@@ -93,7 +90,7 @@ yayaBD::cerrarConexion();
     <a href="<?= BASE_URL ?>/../sesiones/accesoUser.php" class="boton">← Volver al perfil</a>
   </div>
 </section>
-    </main>
+
 
 <?php include_once __DIR__ . '/../includes/pie.html'; ?>
 <!-- Modal de confirmación -->
@@ -110,7 +107,6 @@ yayaBD::cerrarConexion();
   window.BASE_URL = "<?= BASE_URL ?>";
 </script>
 <script src="<?= BASE_URL ?>includes/scripts.js"></script>
-
 
 </body>
 </html>
