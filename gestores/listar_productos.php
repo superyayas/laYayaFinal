@@ -60,17 +60,19 @@ yayaBD::cerrarConexion();
                   <input type="hidden" name="cesta" value="1">
                   <input type="submit" class="boton boton-añadir" value="Añadir a la cesta 1">
                 </form>
-
+                |
                 <!-- Cesta 2 -->
                 <form action="productos_cesta.php" method="post">
                   <input type="hidden" name="ID_Producto" value="<?= htmlspecialchars($fila['ID_Producto']) ?>">
                   <input type="hidden" name="cesta" value="2">
                   <input type="submit" class="boton boton-añadir" value="Añadir a la cesta 2">
                 </form>
+                |
                 <form action="modificar_producto.php" method="get">
                   <input type="hidden" name="ID_Producto" value="<?= htmlspecialchars($fila['ID_Producto']) ?>">
                   <input type="submit" class="boton boton-modificar" value="Modificar">
                 </form>
+                |
                 <form action="eliminar_producto.php" method="post" class="form-eliminar">
                   <input type="hidden" name="ID_Producto" value="<?= htmlspecialchars($fila['ID_Producto']) ?>">
                   <input type="submit" class="boton boton-eliminar" value="Eliminar">
