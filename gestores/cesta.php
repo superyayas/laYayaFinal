@@ -38,17 +38,17 @@ yayaBD::cerrarConexion();
 <article class="centrado">
     <h1>Comparación de Cestas</h1>
 
-    <form action="limpiarCesta.php" method="post" style="display:inline;">
+    <form action="limpiar_Cesta.php" method="post" style="display:inline;">
         <input type="hidden" name="cesta" value="1">
         <input type="submit" value="🗑 Vaciar Cesta 1" class="boton boton-eliminar">
     </form>
 
-    <form action="limpiarCesta.php" method="post" style="display:inline;">
+    <form action="limpiar_Cesta.php" method="post" style="display:inline;">
         <input type="hidden" name="cesta" value="2">
         <input type="submit" value="🗑 Vaciar Cesta 2" class="boton boton-eliminar">
     </form>
 
-    <form action="limpiarCesta.php" method="post" style="display:inline;">
+    <form action="limpiar_Cesta.php" method="post" style="display:inline;">
         <input type="hidden" name="cesta" value="todas">
         <input type="submit" value="🗑 Vaciar Ambas Cestas" class="boton boton-eliminar">
     </form>
