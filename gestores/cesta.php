@@ -38,24 +38,26 @@ yayaBD::cerrarConexion();
 <article class="centrado">
     <h1>Comparación de Cestas</h1>
 
-    <form action="limpiar_Cesta.php" method="post" style="display:inline;">
-        <input type="hidden" name="cesta" value="1">
-        <input type="submit" value="🗑 Vaciar Cesta 1" class="boton boton-eliminar">
-    </form>
+    <div class="botones-cesta">
+        <form action="limpiar_cesta.php" method="post" style="display:inline;">
+            <input type="hidden" name="cesta" value="1">
+            <input type="submit" value="🗑 Vaciar Cesta 1" class="boton">
+        </form>
 
-    <form action="limpiar_Cesta.php" method="post" style="display:inline;">
-        <input type="hidden" name="cesta" value="2">
-        <input type="submit" value="🗑 Vaciar Cesta 2" class="boton boton-eliminar">
-    </form>
+        <form action="limpiar_cesta.php" method="post" style="display:inline;">
+            <input type="hidden" name="cesta" value="2">
+            <input type="submit" value="🗑 Vaciar Cesta 2" class="boton">
+        </form>
 
-    <form action="limpiar_Cesta.php" method="post" style="display:inline;">
-        <input type="hidden" name="cesta" value="todas">
-        <input type="submit" value="🗑 Vaciar Ambas Cestas" class="boton boton-eliminar">
-    </form>
+        <form action="limpiar_cesta.php" method="post" style="display:inline;">
+            <input type="hidden" name="cesta" value="todas">
+            <input type="submit" value="🗑 Vaciar Ambas Cestas" class="boton">
+        </form>
+    </div>
 
     <div class="cestas-comparadas">
     <!-- Cesta 1 -->
-    <div class="cesta">
+    <div class="seccion-contenedor">
         <h2>Cesta 1</h2>
         <?php if (!empty($productos_cesta1)): ?>
         <table class="tabla">
@@ -98,7 +100,7 @@ yayaBD::cerrarConexion();
     </div>
 
     <!-- Cesta 2 -->
-    <div class="cesta">
+    <div class="seccion-contenedor">
         <h2>Cesta 2</h2>
         <?php if (!empty($productos_cesta2)): ?>
         <table class="tabla">
@@ -141,8 +143,10 @@ yayaBD::cerrarConexion();
     </div>
     </div>
 
-    <p><a href="listar_productos.php">← Volver a productos</a></p>
-    <p><a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver al perfil</a></p>
+    <div class="botones-navegacion">
+    <p><a href="listar_productos.php" class="boton">← Volver a productos</a></p>
+    <p><a href="<?= BASE_URL ?>/../sesiones/accesoUser.php" class="boton">← Volver al perfil</a></p>
+    </div>
 </article>
 </section>
 
