@@ -942,3 +942,29 @@ td.acciones .boton {
     background-color: white;
     color: lightseagreen;
 }
+
+/* aquí empieza el código de las cestas */
+
+.botones-cesta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.botones-cesta .boton {
+  background-color: #6a1b9a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.botones-cesta .boton:hover {
+  background-color: red;
+  color: white;
+  border: 2px solid #6a1b9a;
+}
