@@ -55,7 +55,7 @@ yayaBD::cerrarConexion();
 
     <div class="cestas-comparadas">
     <!-- Cesta 1 -->
-    <div class="cesta">
+    <div class="seccion-contenedor">
         <h2>Cesta 1</h2>
         <?php if (!empty($productos_cesta1)): ?>
         <table class="tabla">
@@ -98,7 +98,7 @@ yayaBD::cerrarConexion();
     </div>
 
     <!-- Cesta 2 -->
-    <div class="cesta">
+    <div class="seccion-contenedor">
         <h2>Cesta 2</h2>
         <?php if (!empty($productos_cesta2)): ?>
         <table class="tabla">
