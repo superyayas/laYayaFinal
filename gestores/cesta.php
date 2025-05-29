@@ -4,103 +4,148 @@ include_once __DIR__ . '/../modelo/bdd/mysql.php';
 
 session_start();
 
-<<<<<<< HEAD
-$cesta = $_SESSION['cesta'] ?? array();
+$cesta1 = $_SESSION['cesta1'] ?? [];
+$cesta2 = $_SESSION['cesta2'] ?? [];
 
-$productosCesta = array();
-if (!empty($cesta)) {
-    $ids_productos = array_keys($cesta);
+function obtenerProductos($cesta) {
+    if (empty($cesta)) return [];
+
+    $ids = implode(",", array_map('intval', array_keys($cesta)));
     $sql = "SELECT p.ID_Producto, p.NombreProducto, pr.Precio
             FROM producto p
             INNER JOIN precioproducto pr ON p.ID_Producto = pr.ID_Producto
-            WHERE p.ID_Producto IN (" . implode(',', $ids_productos) . ")";
-    $productosCesta = yayaBD::consultaLectura($sql);
-=======
-$cesta = $_SESSION['cesta'] ?? array(); // Obtener la cesta o un array vacío
-
-$productos_en_cesta = array();
-if (!empty($cesta)) {
-    $ids_productos = array_keys($cesta);
-    $sql = "SELECT p.ID_Producto, p.Nombre, pr.Precio
-            FROM producto p
-            INNER JOIN precio pr ON p.ID_Producto = pr.ID_Producto
-            WHERE p.ID_Producto IN (" . implode(',', $ids_productos) . ")";
-    $productos_en_cesta = yayaBD::consultaLectura($sql);
->>>>>>> d7787d635fd3c628907de18707ec61e884fc82cb
+            WHERE p.ID_Producto IN ($ids)";
+    return yayaBD::consultaLectura($sql);
 }
+
+$productos_cesta1 = obtenerProductos($cesta1);
+$productos_cesta2 = obtenerProductos($cesta2);
 
 yayaBD::cerrarConexion();
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Cesta de la Compra</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>includes/styles.css">
+<meta charset="UTF-8">
+<title>Comparar Cestas</title>
+<link rel="stylesheet" href="<?= BASE_URL ?>includes/styles.css">
 </head>
 <body>
-    <?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
+<?php include_once __DIR__ . '/../includes/cabecera.php'; ?>
 
-    <section class="completo">
-        <article class="centrado">
-            <h1>Mi Cesta de la Compra</h1>
+<section class="completo">
+<article class="centrado">
+    <h1>Comparación de Cestas</h1>
 
-<<<<<<< HEAD
-            <?php if (!empty($productosCesta)): ?>
-=======
-            <?php if (!empty($productos_en_cesta)): ?>
->>>>>>> d7787d635fd3c628907de18707ec61e884fc82cb
-                <table class="tabla">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-<<<<<<< HEAD
-                            <th>Precio Ud</th>
-=======
-                            <th>Precio Unitario</th>
->>>>>>> d7787d635fd3c628907de18707ec61e884fc82cb
-                            <th>Cantidad</th>
-                            <th>Precio Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $total_cesta = 0; ?>
-<<<<<<< HEAD
-                        <?php foreach ($productosCesta as $producto): ?>
-                            <?php $cantidad = $cesta[$producto['ID_Producto']]; ?>
-                            <?php $precio_total_producto = $producto['Precio'] * $cantidad; ?>
-                            <tr>
-                                <td><?= htmlspecialchars($producto['NombreProducto']) ?></td>
-=======
-                        <?php foreach ($productos_en_cesta as $producto): ?>
-                            <?php $cantidad = $cesta[$producto['ID_Producto']]; ?>
-                            <?php $precio_total_producto = $producto['Precio'] * $cantidad; ?>
-                            <tr>
-                                <td><?= htmlspecialchars($producto['Nombre']) ?></td>
->>>>>>> d7787d635fd3c628907de18707ec61e884fc82cb
-                                <td><?= htmlspecialchars(number_format($producto['Precio'], 2)) ?> €</td>
-                                <td><?= htmlspecialchars($cantidad) ?></td>
-                                <td><?= htmlspecialchars(number_format($precio_total_producto, 2)) ?> €</td>
-                            </tr>
-                            <?php $total_cesta += $precio_total_producto; ?>
-                        <?php endforeach; ?>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="3" style="text-align:right;"><strong>Total:</strong></td>
-                            <td><strong><?= htmlspecialchars(number_format($total_cesta, 2)) ?> €</strong></td>
-                        </tr>
-                    </tfoot>
-                </table>
-            <?php else: ?>
-                <p>Tu cesta está vacía.</p>
-            <?php endif; ?>
+    <form action="limpiarCesta.php" method="post" style="display:inline;">
+        <input type="hidden" name="cesta" value="1">
+        <input type="submit" value="🗑 Vaciar Cesta 1" class="boton boton-eliminar">
+    </form>
 
-            <p><a href="listar_productos.php">Seguir comprando</a></p>
-            <p><a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver a mi perfil</a></p>
-        </article>
-    </section>
+    <form action="limpiarCesta.php" method="post" style="display:inline;">
+        <input type="hidden" name="cesta" value="2">
+        <input type="submit" value="🗑 Vaciar Cesta 2" class="boton boton-eliminar">
+    </form>
 
-    <?php include_once __DIR__ . '/../includes/pie.html'; ?>
+    <form action="limpiarCesta.php" method="post" style="display:inline;">
+        <input type="hidden" name="cesta" value="todas">
+        <input type="submit" value="🗑 Vaciar Ambas Cestas" class="boton boton-eliminar">
+    </form>
+
+    <div class="cestas-comparadas">
+    <!-- Cesta 1 -->
+    <div class="cesta">
+        <h2>Cesta 1</h2>
+        <?php if (!empty($productos_cesta1)): ?>
+        <table class="tabla">
+            <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php $total1 = 0; ?>
+            <?php foreach ($productos_cesta1 as $producto): ?>
+                <?php
+                $id = $producto['ID_Producto'];
+                $cantidad = $cesta1[$id];
+                $precio = $producto['Precio'];
+                    $subtotal = $precio * $cantidad;
+                $total1 += $subtotal;
+                ?>
+                <tr>
+                <td><?= htmlspecialchars($producto['NombreProducto']) ?></td>
+                <td><?= number_format($precio, 2) ?> €</td>
+                <td><?= $cantidad ?></td>
+                <td><?= number_format($subtotal, 2) ?> €</td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="3" style="text-align:right;"><strong>Total:</strong></td>
+                <td><strong><?= number_format($total1, 2) ?> €</strong></td>
+            </tr>
+            </tfoot>
+        </table>
+        <?php else: ?>
+        <p>La cesta 1 está vacía.</p>
+        <?php endif; ?>
+    </div>
+
+    <!-- Cesta 2 -->
+    <div class="cesta">
+        <h2>Cesta 2</h2>
+        <?php if (!empty($productos_cesta2)): ?>
+        <table class="tabla">
+            <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php $total2 = 0; ?>
+            <?php foreach ($productos_cesta2 as $producto): ?>
+                <?php
+                $id = $producto['ID_Producto'];
+                $cantidad = $cesta2[$id];
+                $precio = $producto['Precio'];
+                  $subtotal = $precio * $cantidad;
+                $total2 += $subtotal;
+                ?>
+                <tr>
+                <td><?= htmlspecialchars($producto['NombreProducto']) ?></td>
+                <td><?= number_format($precio, 2) ?> €</td>
+                <td><?= $cantidad ?></td>
+                <td><?= number_format($subtotal, 2) ?> €</td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="3" style="text-align:right;"><strong>Total:</strong></td>
+                <td><strong><?= number_format($total2, 2) ?> €</strong></td>
+            </tr>
+            </tfoot>
+        </table>
+        <?php else: ?>
+        <p>La cesta 2 está vacía.</p>
+        <?php endif; ?>
+    </div>
+    </div>
+
+    <p><a href="listar_productos.php">← Volver a productos</a></p>
+    <p><a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver al perfil</a></p>
+</article>
+</section>
+
+<?php include_once __DIR__ . '/../includes/pie.html'; ?>
 </body>
 </html>
