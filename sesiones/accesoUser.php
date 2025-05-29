@@ -25,7 +25,7 @@ include_once __DIR__ . '/../config.php';
           <a href="<?= BASE_URL ?>gestores/add_producto.php" class="boton"> Añadir Producto </a>
       </div>
 
-  <h2 class="seccion-centrada">Añadir un nuevo supermercado</h2>
+  <h2 class="seccion-centrada">Gestión de supermercado</h2>
    <div class="botones-crud">
       <a href="<?= BASE_URL ?>gestores/add_supermercado.php" class="boton">Añadir un nuevo supermercado</a>
       <a href="<?= BASE_URL ?>gestores/listar_supermercado.php" class="boton">Comprobar los supermercados</a>
