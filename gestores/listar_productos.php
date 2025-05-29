@@ -3,19 +3,11 @@ include_once __DIR__ . '/../config.php';
 include_once __DIR__ . '/../modelo/bdd/mysql.php';
 
 // Obtenemos productos + precios + supermercados
-<<<<<<< HEAD
-$sql = "SELECT
-            p.ID_Producto,
-            p.NombreProducto,
-            p.Marca,
-            pr.Precio,
-=======
 $sql = "SELECT 
             p.ID_Producto, 
             p.NombreProducto, 
             p.Marca, 
             pr.Precio, 
->>>>>>> d7787d635fd3c628907de18707ec61e884fc82cb
             s.Nombre AS NombreSupermercado
         FROM producto p
         LEFT JOIN precioproducto pr ON p.ID_Producto = pr.ID_Producto
@@ -62,11 +54,7 @@ yayaBD::cerrarConexion();
               <td><?= htmlspecialchars(number_format($fila['Precio'], 2)) ?> €</td>
               <td><?= htmlspecialchars($fila['NombreSupermercado']) ?></td>
               <td class="acciones">
-<<<<<<< HEAD
-                <form action="productos_cesta.php" method="post">
-=======
                 <form action="cesta.php" method="post">
->>>>>>> d7787d635fd3c628907de18707ec61e884fc82cb
                   <input type="hidden" name="ID_Producto" value="<?= htmlspecialchars($fila['ID_Producto']) ?>">
                   <input type="submit" class="boton boton-añadir" value="Añadir a la cesta">
                 </form>
