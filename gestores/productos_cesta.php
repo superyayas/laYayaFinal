@@ -1,19 +1,20 @@
 <?php
 session_start();
 
-if (isset($_POST['ID_Producto'])) {
-    $id_producto = intval($_POST['ID_Producto']);
+$id_producto = intval($_POST['ID_Producto']);
+$cesta_numero = intval($_POST['cesta']); // 1 o 2
 
-    if (!isset($_SESSION['cesta'])) {
-        $_SESSION['cesta'] = [];
-    }
+$nombre_cesta = "cesta" . $cesta_numero;
 
-    if (isset($_SESSION['cesta'][$id_producto])) {
-        $_SESSION['cesta'][$id_producto]++;
-    } else {
-        $_SESSION['cesta'][$id_producto] = 1;
-    }
+if (!isset($_SESSION[$nombre_cesta])) {
+    $_SESSION[$nombre_cesta] = [];
 }
 
-header('Location: listar_productos.php');
+if (isset($_SESSION[$nombre_cesta][$id_producto])) {
+    $_SESSION[$nombre_cesta][$id_producto]++;
+} else {
+    $_SESSION[$nombre_cesta][$id_producto] = 1;
+}
+
+header("Location: listar_productos.php");
 exit;
