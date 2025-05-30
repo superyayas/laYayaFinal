@@ -102,7 +102,7 @@ yayaBD::cerrarConexion();
       </select>
 
       <div class="botones-crud">
-        <input type="submit" class="boton" value="Guardar cambios">
+        <input type="submit" class="boton" value="Guardar">
         <a class="boton boton-salir" href="listar_productos.php">Cancelar</a>
       </div>
     </form>
