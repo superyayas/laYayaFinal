@@ -48,10 +48,11 @@ yayaBD::cerrarConexion();
                     <input type="submit" class="boton boton-modificar" value="Modificar">
                   </form>
                   |
-                  <form action="eliminar_supermercado.php" method="post" class="form-eliminar" style="display:inline;" onsubmit="return confirm('¿Seguro que deseas eliminar este supermercado?');">
-                    <input type="hidden" name="id" value="<?= htmlspecialchars($fila['ID_Supermercado']) ?>">
-                    <button type="submit" class="boton boton-eliminar">Eliminar</button>
-                  </form>
+                <form action="eliminar_supermercado.php" method="post" onsubmit="return confirm('¿Seguro que deseas eliminar este supermercado?');">
+                  <input type="hidden" name="ID_Supermercado" value="<?= htmlspecialchars($fila['ID_Supermercado']) ?>">
+                  <input type="submit" class="boton boton-eliminar" value="Eliminar">
+                </form>
+                
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -61,11 +62,22 @@ yayaBD::cerrarConexion();
       <?php else: ?>
         <p>No hay supermercados registrados.</p>
       <?php endif; ?>
+
+      <?php if (isset($_GET['error']) && $_GET['error'] === 'relaciones'): ?>
+        <p style="color: red; font-weight: bold;">
+          No se puede eliminar el supermercado porque tiene productos asignados.
+        </p>
+      <?php elseif (isset($_GET['exito'])): ?>
+        <p style="color: green; font-weight: bold;">
+          Supermercado eliminado correctamente.
+        </p>
+      <?php endif; ?>
+
       <div class="botones-navegacion">
           <a href="<?= BASE_URL ?>/../sesiones/accesoUser.php">← Volver a mi perfil</a>
       </div>
   </section>
 </main>
   <?php include_once __DIR__ . '/../includes/pie.html'; ?>
-</body>
+
 </html>
